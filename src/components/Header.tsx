@@ -43,13 +43,13 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
       
       <Tabs defaultValue={activeTab} className="w-full sm:w-auto" onValueChange={setActiveTab}>
         <TabsList className="w-full sm:w-auto grid grid-cols-3">
-          <TabsTrigger value="editor" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+          <TabsTrigger value="editor" className="data-[state=active]:bg-[#272727] data-[state=active]:text-primary-foreground">
             Editor
           </TabsTrigger>
-          <TabsTrigger value="components" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+          <TabsTrigger value="components" className="data-[state=active]:bg-[#272727] data-[state=active]:text-primary-foreground">
             Components
           </TabsTrigger>
-          <TabsTrigger value="colors" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+          <TabsTrigger value="colors" className="data-[state=active]:bg-[#272727] data-[state=active]:text-primary-foreground">
             Colors
           </TabsTrigger>
         </TabsList>

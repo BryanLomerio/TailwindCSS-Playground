@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 
 interface PreviewProps {
@@ -8,9 +7,7 @@ interface PreviewProps {
 const Preview = ({ htmlCode }: PreviewProps) => {
   const [iframeHeight, setIframeHeight] = useState("100%");
 
-  // Create a secure iframe src document
   const createIframeSrc = (html: string) => {
-    // Add necessary Tailwind CDN
     return `
       <!DOCTYPE html>
       <html>
@@ -28,6 +25,17 @@ const Preview = ({ htmlCode }: PreviewProps) => {
         <body>
           ${html}
           <script>
+            // Prevent link clicks from navigating
+            document.addEventListener('click', function(e) {
+              let target = e.target;
+              while (target && target !== document) {
+                if (target.tagName === 'A') {
+                  e.preventDefault();
+                  break;
+                }
+                target = target.parentElement;
+              }
+            });
             // Send height to parent for iframe adjustment
             window.onload = function() {
               window.parent.postMessage({
@@ -40,16 +48,15 @@ const Preview = ({ htmlCode }: PreviewProps) => {
     `;
   };
 
-  // Handle messages from the iframe
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       if (event.data && event.data.height) {
-        setIframeHeight(`${event.data.height + 32}px`); // Add some padding
+        setIframeHeight(`${event.data.height + 32}px`); 
       }
     };
 
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
   }, []);
 
   return (

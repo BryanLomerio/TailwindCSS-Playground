@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import Header from "@/components/Header";
 import CodeEditor from "@/components/CodeEditor";
 import Preview from "@/components/Preview";
 import ComponentLibrary from "@/components/ComponentLibrary";
 import ColorPalette from "@/components/ColorPalette";
+import Socials from "@/components/ui/Socials";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("editor");
@@ -28,7 +28,7 @@ const Index = () => {
 </div>`);
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="relative flex flex-col min-h-screen bg-background">
       <Header
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -55,6 +55,10 @@ const Index = () => {
           </div>
         )}
       </main>
+      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+  <Socials />
+</div>
+
     </div>
   );
 };

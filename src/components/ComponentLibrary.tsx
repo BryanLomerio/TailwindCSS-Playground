@@ -1,5 +1,4 @@
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -99,9 +98,21 @@ interface ComponentCardProps {
 }
 
 const ComponentCard = ({ title, preview, code, onCopy }: ComponentCardProps) => {
+  const handlePreviewClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    const link = target.closest("a");
+    if (link) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className="border border-border rounded-lg overflow-hidden bg-card shadow-sm transition-all hover:shadow-md">
-      <div className="p-4 border-b border-border bg-white" dangerouslySetInnerHTML={{ __html: preview }} />
+      <div 
+        className="p-4 border-b border-border bg-white" 
+        dangerouslySetInnerHTML={{ __html: preview }}
+        onClick={handlePreviewClick}
+      />
       <div className="p-3 flex justify-between items-center bg-muted/50">
         <h3 className="text-sm font-medium">{title}</h3>
         <Button 
@@ -149,11 +160,15 @@ const buttonComponents = [
   {
     title: "Button with Icon",
     preview: `<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center">
-  <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+  <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+    <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
+  </svg>
   <span>Download</span>
 </button>`,
     code: `<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center">
-  <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+  <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+    <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
+  </svg>
   <span>Download</span>
 </button>`
   }

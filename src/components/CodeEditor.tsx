@@ -1,5 +1,9 @@
-
 import { useState, useEffect } from "react";
+import Editor from "react-simple-code-editor";
+import Prism from "prismjs";
+import "prismjs/components/prism-markup"; 
+import "prismjs/themes/prism.css"; 
+
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Play } from "lucide-react";
@@ -25,6 +29,10 @@ const CodeEditor = ({ initialValue = defaultTemplate, onChange }: CodeEditorProp
     });
   };
 
+  const highlightCode = (code: string) => {
+    return Prism.highlight(code, Prism.languages.markup, "markup");
+  };
+
   return (
     <div className="flex flex-col h-full bg-card rounded-md shadow-sm border border-border overflow-hidden animate-fade-in">
       <div className="flex justify-between items-center px-4 py-2 bg-muted border-b border-border">
@@ -32,27 +40,28 @@ const CodeEditor = ({ initialValue = defaultTemplate, onChange }: CodeEditorProp
         <Button 
           variant="secondary" 
           size="sm" 
-          className="flex items-center gap-1 bg-primary text-primary-foreground hover:bg-primary/90"
+          className="flex items-center gap-1 bg-[#272727] text-primary-foreground hover:bg-[#717171]"
           onClick={handleRun}
         >
-          <Play className="w-4 h-4" />
+          <Play className="w-4 h-4 te" />
           Run
         </Button>
       </div>
-      <textarea
-        className="flex-1 w-full p-4 bg-card text-card-foreground resize-none outline-none font-mono text-sm editor-scrollbar"
+      <Editor
         value={code}
-        onChange={(e) => setCode(e.target.value)}
-        spellCheck="false"
-        autoCapitalize="off"
-        autoComplete="off"
-        autoCorrect="off"
+        onValueChange={(code) => setCode(code)}
+        highlight={highlightCode}
+        padding={16}
+        className="flex-1 w-full p-4 bg-card text-card-foreground resize-none outline-none font-mono text-sm editor-scrollbar"
+        style={{
+          fontFamily: '"Fira Code", "Fira Mono", monospace',
+          fontSize: 14,
+        }}
       />
     </div>
   );
 };
 
-// Default template with basic Tailwind examples
 const defaultTemplate = `<!-- Tailwind CSS Playground -->
 <!-- Try editing this code to see the changes in real-time -->
 
