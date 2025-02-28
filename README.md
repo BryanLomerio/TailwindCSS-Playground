@@ -3,18 +3,18 @@ A modern UI toolkit that combines a **split-screen code editor with live preview
 
 ## **Features**  
 
-✅ **Split-Screen Layout** – Code on one side, live preview on the other.  
-✅ **Component Library** – Access reusable UI elements for faster prototyping.  
-✅ **Tailwind Colors Visualization** – Explore Tailwind’s color palette easily.  
-✅ **Responsive Design** – Works on all screen sizes and devices.  
-✅ **Code Copying** – Instantly copy generated code with one click.  
+**Split-Screen Layout** – Code on one side, live preview on the other.  
+**Component Library** – Access reusable UI elements for faster prototyping.  
+**Tailwind Colors Visualization** – Explore Tailwind’s color palette easily.  
+**Responsive Design** – Works on all screen sizes and devices.  
+**Code Copying** – Instantly copy generated code with one click.  
 
 ## **Design & Styling**  
 
-🎨 **Minimal, Clean Aesthetic** – White space for a distraction-free UI.  
-🎭 **Subtle Animations** – Smooth transitions for enhanced usability.  
-🖋️ **Monospace Fonts** – Optimized for better code readability.  
-🌟 **Soft Shadows & Borders** – Visual depth and distinction.  
+**Minimal, Clean Aesthetic** – White space for a distraction-free UI.  
+**Subtle Animations** – Smooth transitions for enhanced usability.  
+**Monospace Fonts** – Optimized for better code readability.  
+**Soft Shadows & Borders** – Visual depth and distinction.  
 
 ---
 
