@@ -726,6 +726,192 @@ const formComponents = [
   <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
   <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900">Default checkbox</label>
 </div>`
+  },
+  {
+    title: "Radio Group",
+    preview: `<div class="mb-4">
+  <span class="block text-gray-700 text-sm font-bold mb-2">Gender</span>
+  <div class="flex items-center">
+    <input id="male" type="radio" name="gender" class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+    <label for="male" class="ml-2 text-sm text-gray-900">Male</label>
+  </div>
+  <div class="flex items-center mt-2">
+    <input id="female" type="radio" name="gender" class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+    <label for="female" class="ml-2 text-sm text-gray-900">Female</label>
+  </div>
+</div>`,
+    code: `<div class="mb-4">
+  <span class="block text-gray-700 text-sm font-bold mb-2">Gender</span>
+  <div class="flex items-center">
+    <input id="male" type="radio" name="gender" class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+    <label for="male" class="ml-2 text-sm text-gray-900">Male</label>
+  </div>
+  <div class="flex items-center mt-2">
+    <input id="female" type="radio" name="gender" class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+    <label for="female" class="ml-2 text-sm text-gray-900">Female</label>
+  </div>
+</div>`
+  },
+  {
+    title: "Text Area",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+    Message
+  </label>
+  <textarea id="message" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your message"></textarea>
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+    Message
+  </label>
+  <textarea id="message" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your message"></textarea>
+</div>`
+  },
+  {
+    title: "Select Dropdown",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="country">
+    Country
+  </label>
+  <select id="country" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+    <option>Philippines</option>
+    <option>Korea</option>
+    <option>China</option>
+  </select>
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="country">
+    Country
+  </label>
+  <select id="country" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+    <option>Philippines</option>
+    <option>Korea</option>
+    <option>Japan</option>
+  </select>
+</div>`
+  },
+  {
+    title: "File Input",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="file">
+    Upload File
+  </label>
+  <input id="file" type="file" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="file">
+    Upload File
+  </label>
+  <input id="file" type="file" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+</div>`
+  },
+  {
+    title: "Toggle Switch",
+    preview: `<div class="mb-4">
+  <label for="toggle" class="flex items-center cursor-pointer">
+    <div class="relative">
+      <input id="toggle" type="checkbox" class="sr-only">
+      <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+      <div class="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+    </div>
+    <span class="ml-3 text-gray-700 font-medium">Toggle Option</span>
+  </label>
+</div>`,
+    code: `<div class="mb-4">
+  <label for="toggle" class="flex items-center cursor-pointer">
+    <div class="relative">
+      <input id="toggle" type="checkbox" class="sr-only">
+      <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+      <div class="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+    </div>
+    <span class="ml-3 text-gray-700 font-medium">Toggle Option</span>
+  </label>
+</div>`
+  },
+  {
+    title: "Range Slider",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="range">
+    Volume
+  </label>
+  <input id="range" type="range" class="w-full">
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="range">
+    Volume
+  </label>
+  <input id="range" type="range" class="w-full">
+</div>`
+  },
+  {
+    title: "Password Input",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+    Password
+  </label>
+  <input id="password" type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="********">
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+    Password
+  </label>
+  <input id="password" type="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="********">
+</div>`
+  },
+  {
+    title: "Email Input",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+    Email
+  </label>
+  <input id="email" type="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="example@mail.com">
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+    Email
+  </label>
+  <input id="email" type="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="example@mail.com">
+</div>`
+  },
+  {
+    title: "Search Input",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="search">
+    Search
+  </label>
+  <div class="relative">
+    <input id="search" type="search" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search...">
+    <svg class="absolute right-3 top-3 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M16.65 16.65A7 7 0 1116.65 2a7 7 0 010 14z"></path>
+    </svg>
+  </div>
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="search">
+    Search
+  </label>
+  <div class="relative">
+    <input id="search" type="search" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search...">
+    <svg class="absolute right-3 top-3 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M16.65 16.65A7 7 0 1116.65 2a7 7 0 010 14z"></path>
+    </svg>
+  </div>
+</div>`
+  },
+  {
+    title: "Date Picker",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="date">
+    Select Date
+  </label>
+  <input id="date" type="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="date">
+    Select Date
+  </label>
+  <input id="date" type="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+</div>`
   }
 ];
 
@@ -822,7 +1008,126 @@ const navigationComponents = [
     </li>
   </ol>
 </nav>`
+  },
+  {
+    title: "Sticky Navbar with Shadow",
+    preview: `<nav class="sticky top-0 z-50 bg-white shadow p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="text-xl font-bold text-gray-800">StickyBrand</div>
+    <div class="space-x-4">
+      <a href="#" class="text-gray-600 hover:text-gray-900">Home</a>
+      <a href="#" class="text-gray-600 hover:text-gray-900">About</a>
+      <a href="#" class="text-gray-600 hover:text-gray-900">Services</a>
+      <a href="#" class="text-gray-600 hover:text-gray-900">Contact</a>
+    </div>
+  </div>
+</nav>`,
+    code: `<nav class="sticky top-0 z-50 bg-white shadow p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="text-xl font-bold text-gray-800">StickyBrand</div>
+    <div class="space-x-4">
+      <a href="#" class="text-gray-600 hover:text-gray-900">Home</a>
+      <a href="#" class="text-gray-600 hover:text-gray-900">About</a>
+      <a href="#" class="text-gray-600 hover:text-gray-900">Services</a>
+      <a href="#" class="text-gray-600 hover:text-gray-900">Contact</a>
+    </div>
+  </div>
+</nav>`
+  },
+  {
+    title: "Navbar with Logo & CTA",
+    preview: `<nav class="bg-white shadow p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="flex items-center">
+      <img src="https://via.placeholder.com/40" alt="Logo" class="h-10 w-10 mr-2">
+      <span class="font-bold text-xl text-gray-800">MyBrand</span>
+    </div>
+    <div class="hidden md:flex space-x-6">
+      <a href="#" class="text-gray-600 hover:text-gray-900">Home</a>
+      <a href="#" class="text-gray-600 hover:text-gray-900">About</a>
+      <a href="#" class="text-gray-600 hover:text-gray-900">Services</a>
+      <a href="#" class="text-gray-600 hover:text-gray-900">Contact</a>
+    </div>
+    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Sign Up</button>
+  </div>
+</nav>`,
+    code: `<nav class="bg-white shadow p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="flex items-center">
+      <img src="https://via.placeholder.com/40" alt="Logo" class="h-10 w-10 mr-2">
+      <span class="font-bold text-xl text-gray-800">MyBrand</span>
+    </div>
+    <div class="hidden md:flex space-x-6">
+      <a href="#" class="text-gray-600 hover:text-gray-900">Home</a>
+      <a href="#" class="text-gray-600 hover:text-gray-900">About</a>
+      <a href="#" class="text-gray-600 hover:text-gray-900">Services</a>
+      <a href="#" class="text-gray-600 hover:text-gray-900">Contact</a>
+    </div>
+    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Sign Up</button>
+  </div>
+</nav>`
+  },
+  {
+    title: "Responsive Navbar with Hamburger",
+    preview: `<nav class="bg-blue-600 p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="text-white font-bold text-xl">ResponsiveBrand</div>
+    <div class="block md:hidden">
+      <button class="text-white focus:outline-none">
+        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div class="hidden md:flex space-x-6">
+      <a href="#" class="text-white hover:text-gray-300">Home</a>
+      <a href="#" class="text-white hover:text-gray-300">Services</a>
+      <a href="#" class="text-white hover:text-gray-300">Portfolio</a>
+      <a href="#" class="text-white hover:text-gray-300">Contact</a>
+    </div>
+  </div>
+</nav>`,
+    code: `<nav class="bg-blue-600 p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="text-white font-bold text-xl">ResponsiveBrand</div>
+    <div class="block md:hidden">
+      <button class="text-white focus:outline-none">
+        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+    <div class="hidden md:flex space-x-6">
+      <a href="#" class="text-white hover:text-gray-300">Home</a>
+      <a href="#" class="text-white hover:text-gray-300">Services</a>
+      <a href="#" class="text-white hover:text-gray-300">Portfolio</a>
+      <a href="#" class="text-white hover:text-gray-300">Contact</a>
+    </div>
+  </div>
+</nav>`
+  },
+  {
+    title: "Navbar with Search Bar",
+    preview: `<nav class="bg-gray-100 p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="text-xl font-bold text-gray-800">SearchBrand</div>
+    <div class="flex items-center space-x-4">
+      <input type="text" placeholder="Search..." class="px-3 py-2 border rounded focus:outline-none">
+      <button class="bg-blue-600 text-white px-3 py-2 rounded hover:bg-blue-700">Search</button>
+    </div>
+  </div>
+</nav>`,
+    code: `<nav class="bg-gray-100 p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="text-xl font-bold text-gray-800">SearchBrand</div>
+    <div class="flex items-center space-x-4">
+      <input type="text" placeholder="Search..." class="px-3 py-2 border rounded focus:outline-none">
+      <button class="bg-blue-600 text-white px-3 py-2 rounded hover:bg-blue-700">Search</button>
+    </div>
+  </div>
+</nav>`
   }
 ];
+
 
 export default ComponentLibrary;
