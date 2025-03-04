@@ -171,8 +171,67 @@ const buttonComponents = [
   </svg>
   <span>Download</span>
 </button>`
+  },
+  {
+    title: "Gradient Button",
+    preview: `<button class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 hover:from-red-500 hover:via-pink-500 hover:to-purple-400 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
+  Button
+</button>`,
+    code: `<button class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 hover:from-red-500 hover:via-pink-500 hover:to-purple-400 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
+  Button
+</button>`
+  },
+  {
+    title: "Pulse Button",
+    preview: `<button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded animate-pulse">
+  Button
+</button>`,
+    code: `<button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded animate-pulse">
+  Button
+</button>`
+  },
+  {
+    title: "Loading Button",
+    preview: `<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center" disabled>
+  <svg class="animate-spin h-5 w-5 mr-3 border-4 border-t-transparent border-white rounded-full" viewBox="0 0 24 24"></svg>
+  Loading...
+</button>`,
+    code: `<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center justify-center" disabled>
+  <svg class="animate-spin h-5 w-5 mr-3 border-4 border-t-transparent border-white rounded-full" viewBox="0 0 24 24"></svg>
+  Loading...
+</button>`
+  },
+  {
+    title: "Outline Shadow Button",
+    preview: `<button class="bg-transparent text-blue-500 font-semibold py-2 px-4 border border-blue-500 rounded shadow hover:shadow-lg transition-shadow duration-300">
+  Button
+</button>`,
+    code: `<button class="bg-transparent text-blue-500 font-semibold py-2 px-4 border border-blue-500 rounded shadow hover:shadow-lg transition-shadow duration-300">
+  Button
+</button>`
+  },
+  {
+    title: "Pill Button",
+    preview: `<button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-full transform hover:scale-105 transition-transform duration-200">
+  Button
+</button>`,
+    code: `<button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-full transform hover:scale-105 transition-transform duration-200">
+  Button
+</button>`
+  },
+  {
+    title: "Underline Hover Button",
+    preview: `<button class="bg-transparent text-purple-500 font-semibold py-2 px-4 relative group">
+  Button
+  <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
+</button>`,
+    code: `<button class="bg-transparent text-purple-500 font-semibold py-2 px-4 relative group">
+  Button
+  <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
+</button>`
   }
 ];
+
 
 // Card components
 const cardComponents = [
