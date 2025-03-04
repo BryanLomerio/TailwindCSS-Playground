@@ -229,6 +229,192 @@ const buttonComponents = [
   Button
   <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
 </button>`
+  },
+  {
+    title: "Floating Button",
+    preview: `<button class="bg-indigo-500 text-white font-bold py-2 px-4 rounded-full shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
+  Floating
+</button>`,
+    code: `<button class="bg-indigo-500 text-white font-bold py-2 px-4 rounded-full shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
+  Floating
+</button>`
+  },
+  {
+    title: "Ripple Button",
+    preview: `<button class="relative overflow-hidden bg-teal-500 text-white font-bold py-2 px-4 rounded">
+  Ripple
+  <span class="absolute inset-0 bg-white opacity-0 transition duration-500 ease-out"></span>
+</button>`,
+    code: `<button class="relative overflow-hidden bg-teal-500 text-white font-bold py-2 px-4 rounded">
+  Ripple
+  <span class="absolute inset-0 bg-white opacity-0 transition duration-500 ease-out"></span>
+</button>`
+  },
+  {
+    title: "Bounce Button",
+    preview: `<button class="bg-yellow-500 text-white font-bold py-2 px-4 rounded transform hover:scale-110 transition-transform duration-300">
+  Bounce
+</button>`,
+    code: `<button class="bg-yellow-500 text-white font-bold py-2 px-4 rounded transform hover:scale-110 transition-transform duration-300">
+  Bounce
+</button>`
+  },
+  {
+    title: "Zoom Button",
+    preview: `<button class="bg-pink-500 text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition-transform duration-300">
+  Zoom
+</button>`,
+    code: `<button class="bg-pink-500 text-white font-bold py-2 px-4 rounded transform hover:scale-125 transition-transform duration-300">
+  Zoom
+</button>`
+  },
+  {
+    title: "Glow Button",
+    preview: `<button class="bg-purple-600 text-white font-bold py-2 px-4 rounded shadow-lg hover:shadow-xl transition-shadow duration-300">
+  Glow
+</button>`,
+    code: `<button class="bg-purple-600 text-white font-bold py-2 px-4 rounded shadow-lg hover:shadow-xl transition-shadow duration-300">
+  Glow
+</button>`
+  },
+  {
+    title: "Skew Button",
+    preview: `<button class="bg-orange-500 text-white font-bold py-2 px-4 rounded transform hover:skew-x-6 transition-transform duration-300">
+  Skew
+</button>`,
+    code: `<button class="bg-orange-500 text-white font-bold py-2 px-4 rounded transform hover:skew-x-6 transition-transform duration-300">
+  Skew
+</button>`
+  },
+  {
+    title: "3D Button",
+    preview: `<button class="bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transform hover:translate-y-1 hover:shadow-2xl transition-transform duration-300">
+  3D Effect
+</button>`,
+    code: `<button class="bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transform hover:translate-y-1 hover:shadow-2xl transition-transform duration-300">
+  3D Effect
+</button>`
+  },
+  {
+    title: "Ghost Button",
+    preview: `<button class="bg-transparent border border-gray-500 text-gray-500 font-bold py-2 px-4 rounded hover:bg-gray-500 hover:text-white transition-colors duration-300">
+  Ghost
+</button>`,
+    code: `<button class="bg-transparent border border-gray-500 text-gray-500 font-bold py-2 px-4 rounded hover:bg-gray-500 hover:text-white transition-colors duration-300">
+  Ghost
+</button>`
+  },
+  {
+    title: "Transparent Hover Button",
+    preview: `<button class="bg-blue-500 text-white font-bold py-2 px-4 rounded transition-colors duration-300 hover:bg-opacity-50">
+  Transparent
+</button>`,
+    code: `<button class="bg-blue-500 text-white font-bold py-2 px-4 rounded transition-colors duration-300 hover:bg-opacity-50">
+  Transparent
+</button>`
+  },
+  {
+    title: "Scale Up Button",
+    preview: `<button class="bg-teal-600 text-white font-bold py-2 px-4 rounded transform transition-transform duration-300 hover:scale-110">
+  Scale Up
+</button>`,
+    code: `<button class="bg-teal-600 text-white font-bold py-2 px-4 rounded transform transition-transform duration-300 hover:scale-110">
+  Scale Up
+</button>`
+  },
+  {
+    title: "Slide In Button",
+    preview: `<button class="bg-red-600 text-white font-bold py-2 px-4 rounded relative overflow-hidden">
+  Slide In
+  <span class="absolute inset-0 transform -translate-x-full bg-red-500 transition-transform duration-300 hover:translate-x-0"></span>
+  <span class="relative">Slide In</span>
+</button>`,
+    code: `<button class="bg-red-600 text-white font-bold py-2 px-4 rounded relative overflow-hidden">
+  Slide In
+  <span class="absolute inset-0 transform -translate-x-full bg-red-500 transition-transform duration-300 hover:translate-x-0"></span>
+  <span class="relative">Slide In</span>
+</button>`
+  },
+  {
+    title: "Flip Button",
+    preview: `<button class="bg-indigo-600 text-white font-bold py-2 px-4 rounded transform transition-transform duration-500 hover:rotate-y-180">
+  Flip
+</button>`,
+    code: `<button class="bg-indigo-600 text-white font-bold py-2 px-4 rounded transform transition-transform duration-500 hover:rotate-y-180">
+  Flip
+</button>`
+  },
+  {
+    title: "Rotate Button",
+    preview: `<button class="bg-purple-500 text-white font-bold py-2 px-4 rounded transform transition-transform duration-300 hover:rotate-180">
+  Rotate
+</button>`,
+    code: `<button class="bg-purple-500 text-white font-bold py-2 px-4 rounded transform transition-transform duration-300 hover:rotate-180">
+  Rotate
+</button>`
+  },
+  {
+    title: "Shrink Button",
+    preview: `<button class="bg-green-600 text-white font-bold py-2 px-4 rounded transform transition-transform duration-300 hover:scale-90">
+  Shrink
+</button>`,
+    code: `<button class="bg-green-600 text-white font-bold py-2 px-4 rounded transform transition-transform duration-300 hover:scale-90">
+  Shrink
+</button>`
+  },
+  {
+    title: "Expand Button",
+    preview: `<button class="bg-blue-600 text-white font-bold py-2 px-4 rounded transform transition-transform duration-300 hover:scale-105">
+  Expand
+</button>`,
+    code: `<button class="bg-blue-600 text-white font-bold py-2 px-4 rounded transform transition-transform duration-300 hover:scale-105">
+  Expand
+</button>`
+  },
+  {
+    title: "Border Transition Button",
+    preview: `<button class="bg-transparent text-indigo-600 font-bold py-2 px-4 border-2 border-indigo-600 rounded transition-all duration-300 hover:bg-indigo-600 hover:text-white">
+  Border Transition
+</button>`,
+    code: `<button class="bg-transparent text-indigo-600 font-bold py-2 px-4 border-2 border-indigo-600 rounded transition-all duration-300 hover:bg-indigo-600 hover:text-white">
+  Border Transition
+</button>`
+  },
+  {
+    title: "Color Cycle Button",
+    preview: `<button class="text-white font-bold py-2 px-4 rounded transition-colors duration-500 hover:bg-red-500 hover:bg-yellow-500 hover:bg-green-500">
+  Color Cycle
+</button>`,
+    code: `<button class="text-white font-bold py-2 px-4 rounded transition-colors duration-500 hover:bg-red-500 hover:bg-yellow-500 hover:bg-green-500">
+  Color Cycle
+</button>`
+  },
+  {
+    title: "Shadow Pulse Button",
+    preview: `<button class="bg-gray-700 text-white font-bold py-2 px-4 rounded shadow animate-pulse">
+  Shadow Pulse
+</button>`,
+    code: `<button class="bg-gray-700 text-white font-bold py-2 px-4 rounded shadow animate-pulse">
+  Shadow Pulse
+</button>`
+  },
+  {
+    title: "Accent Button",
+    preview: `<button class="bg-pink-500 text-white font-bold py-2 px-4 rounded hover:bg-pink-600 transition-colors duration-300">
+  Accent
+</button>`,
+    code: `<button class="bg-pink-500 text-white font-bold py-2 px-4 rounded hover:bg-pink-600 transition-colors duration-300">
+  Accent
+</button>`
+  },
+  {
+    title: "Outline to Filled Button",
+    preview: `<button class="bg-transparent text-blue-500 font-bold py-2 px-4 rounded border-2 border-blue-500 transition-all duration-300 hover:bg-blue-500 hover:text-white">
+  Outline to Filled
+</button>`,
+    code: `<button class="bg-transparent text-blue-500 font-bold py-2 px-4 rounded border-2 border-blue-500 transition-all duration-300 hover:bg-blue-500 hover:text-white">
+  Outline to Filled
+</button>`
   }
 ];
 
