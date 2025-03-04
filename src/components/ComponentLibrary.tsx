@@ -7,7 +7,7 @@ import { Copy } from "lucide-react";
 const ComponentLibrary = () => {
   const { toast } = useToast();
   const [category, setCategory] = useState("buttons");
-  
+
   const copyComponent = (code: string) => {
     navigator.clipboard.writeText(code);
     toast({
@@ -25,14 +25,14 @@ const ComponentLibrary = () => {
           <TabsTrigger value="forms">Forms</TabsTrigger>
           <TabsTrigger value="navigation">Navigation</TabsTrigger>
         </TabsList>
-        
+
         <TabsContent value="buttons" className="space-y-6">
           <h2 className="text-lg font-semibold mb-4">Button Components</h2>
           <div className="component-grid">
             {buttonComponents.map((component, index) => (
-              <ComponentCard 
-                key={index} 
-                title={component.title} 
+              <ComponentCard
+                key={index}
+                title={component.title}
                 preview={component.preview}
                 code={component.code}
                 onCopy={copyComponent}
@@ -40,14 +40,14 @@ const ComponentLibrary = () => {
             ))}
           </div>
         </TabsContent>
-        
+
         <TabsContent value="cards" className="space-y-6">
           <h2 className="text-lg font-semibold mb-4">Card Components</h2>
           <div className="component-grid">
             {cardComponents.map((component, index) => (
-              <ComponentCard 
-                key={index} 
-                title={component.title} 
+              <ComponentCard
+                key={index}
+                title={component.title}
                 preview={component.preview}
                 code={component.code}
                 onCopy={copyComponent}
@@ -55,14 +55,14 @@ const ComponentLibrary = () => {
             ))}
           </div>
         </TabsContent>
-        
+
         <TabsContent value="forms" className="space-y-6">
           <h2 className="text-lg font-semibold mb-4">Form Components</h2>
           <div className="component-grid">
             {formComponents.map((component, index) => (
-              <ComponentCard 
-                key={index} 
-                title={component.title} 
+              <ComponentCard
+                key={index}
+                title={component.title}
                 preview={component.preview}
                 code={component.code}
                 onCopy={copyComponent}
@@ -70,14 +70,14 @@ const ComponentLibrary = () => {
             ))}
           </div>
         </TabsContent>
-        
+
         <TabsContent value="navigation" className="space-y-6">
           <h2 className="text-lg font-semibold mb-4">Navigation Components</h2>
           <div className="component-grid">
             {navigationComponents.map((component, index) => (
-              <ComponentCard 
-                key={index} 
-                title={component.title} 
+              <ComponentCard
+                key={index}
+                title={component.title}
                 preview={component.preview}
                 code={component.code}
                 onCopy={copyComponent}
@@ -108,17 +108,17 @@ const ComponentCard = ({ title, preview, code, onCopy }: ComponentCardProps) => 
 
   return (
     <div className="border border-border rounded-lg overflow-hidden bg-card shadow-sm transition-all hover:shadow-md">
-      <div 
-        className="p-4 border-b border-border bg-white" 
+      <div
+        className="p-4 border-b border-border bg-white"
         dangerouslySetInnerHTML={{ __html: preview }}
         onClick={handlePreviewClick}
       />
       <div className="p-3 flex justify-between items-center bg-muted/50">
         <h3 className="text-sm font-medium">{title}</h3>
-        <Button 
-          variant="ghost" 
-          size="sm" 
-          className="h-8 w-8 p-0" 
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-8 w-8 p-0"
           onClick={() => onCopy(code)}
         >
           <Copy className="h-4 w-4" />
@@ -178,26 +178,26 @@ const buttonComponents = [
 const cardComponents = [
   {
     title: "Simple Card",
-    preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg">
+    preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
     <p class="text-gray-700 text-base">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Experience the calm beauty of a sunset that fills the sky with vibrant hues.
     </p>
   </div>
 </div>`,
-    code: `<div class="max-w-sm rounded overflow-hidden shadow-lg">
+    code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
     <p class="text-gray-700 text-base">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Experience the calm beauty of a sunset that fills the sky with vibrant hues.
     </p>
   </div>
 </div>`
   },
   {
     title: "Card with Image",
-    preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg">
+    preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
   <img class="w-full" src="https://images.unsplash.com/photo-1596079890744-c1a0462d0975?auto=format&fit=crop&w=600&h=400" alt="Mountain">
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">Mountain View</div>
@@ -206,12 +206,248 @@ const cardComponents = [
     </p>
   </div>
 </div>`,
-    code: `<div class="max-w-sm rounded overflow-hidden shadow-lg">
+    code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
   <img class="w-full" src="https://images.unsplash.com/photo-1596079890744-c1a0462d0975?auto=format&fit=crop&w=600&h=400" alt="Mountain">
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">Mountain View</div>
     <p class="text-gray-700 text-base">
       A beautiful mountain landscape view.
+    </p>
+  </div>
+</div>`
+  },
+  {
+    title: "Profile Card",
+    preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4">
+  <div class="flex items-center space-x-4">
+    <img class="w-16 h-16 rounded-full" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=64&h=64" alt="Profile">
+    <div>
+      <div class="font-bold text-xl">Jane Doe</div>
+      <div class="text-gray-600">Software Engineer</div>
+    </div>
+  </div>
+  <p class="mt-4 text-gray-700 text-base">
+    Passionate about building scalable web applications and exploring new technologies.
+  </p>
+</div>`,
+    code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4">
+  <div class="flex items-center space-x-4">
+    <img class="w-16 h-16 rounded-full" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=64&h=64" alt="Profile">
+    <div>
+      <div class="font-bold text-xl">Jane Doe</div>
+      <div class="text-gray-600">Software Engineer</div>
+    </div>
+  </div>
+  <p class="mt-4 text-gray-700 text-base">
+    Passionate about building scalable web applications and exploring new technologies.
+  </p>
+</div>`
+  },
+  {
+    title: "Pricing Card",
+    preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
+  <div class="text-center">
+    <div class="font-bold text-2xl mb-4">Pro Plan</div>
+    <div class="text-4xl font-extrabold">$29<span class="text-xl">/mo</span></div>
+  </div>
+  <ul class="mt-6 space-y-2">
+    <li class="flex items-center">
+      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+      Unlimited Projects
+    </li>
+    <li class="flex items-center">
+      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+      24/7 Support
+    </li>
+    <li class="flex items-center">
+      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+      Advanced Analytics
+    </li>
+  </ul>
+</div>`,
+    code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
+  <div class="text-center">
+    <div class="font-bold text-2xl mb-4">Pro Plan</div>
+    <div class="text-4xl font-extrabold">$29<span class="text-xl">/mo</span></div>
+  </div>
+  <ul class="mt-6 space-y-2">
+    <li class="flex items-center">
+      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+      Unlimited Projects
+    </li>
+    <li class="flex items-center">
+      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+      24/7 Support
+    </li>
+    <li class="flex items-center">
+      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+      Advanced Analytics
+    </li>
+  </ul>
+</div>`
+  },
+  {
+    title: "Product Card",
+    preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+  <img class="w-full" src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&h=400" alt="Product">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Wireless Headphones</div>
+    <p class="text-gray-700 text-base">
+      Enjoy high-quality sound with these comfortable, long-lasting headphones.
+    </p>
+    <div class="mt-4 flex items-center">
+      <span class="text-lg font-bold">$99</span>
+      <button class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Buy Now</button>
+    </div>
+  </div>
+</div>`,
+    code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+  <img class="w-full" src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&h=400" alt="Product">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Wireless Headphones</div>
+    <p class="text-gray-700 text-base">
+      Enjoy high-quality sound with these comfortable, long-lasting headphones.
+    </p>
+    <div class="mt-4 flex items-center">
+      <span class="text-lg font-bold">$99</span>
+      <button class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Buy Now</button>
+    </div>
+  </div>
+</div>`
+  },
+  {
+    title: "Blog Post Card",
+    preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+  <img class="w-full" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&h=400" alt="Blog">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Exploring the Ocean Depths</div>
+    <p class="text-gray-700 text-base">
+      Dive into the mysterious world of the deep sea and discover its hidden wonders.
+    </p>
+    <a href="#" class="mt-4 inline-block text-blue-500 hover:underline">Read More</a>
+  </div>
+</div>`,
+    code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+  <img class="w-full" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&h=400" alt="Blog">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Exploring the Ocean Depths</div>
+    <p class="text-gray-700 text-base">
+      Dive into the mysterious world of the deep sea and discover its hidden wonders.
+    </p>
+    <a href="#" class="mt-4 inline-block text-blue-500 hover:underline">Read More</a>
+  </div>
+</div>`
+  },
+  {
+    title: "Testimonial Card",
+    preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
+  <p class="text-gray-700 text-base italic">
+    "This product completely changed my life! Highly recommended."
+  </p>
+  <div class="mt-4 flex items-center">
+    <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=64&h=64" alt="User">
+    <div class="ml-4">
+      <div class="font-bold text-sm">Alex Johnson</div>
+      <div class="text-gray-600 text-xs">Entrepreneur</div>
+    </div>
+  </div>
+</div>`,
+    code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
+  <p class="text-gray-700 text-base italic">
+    "This product completely changed my life! Highly recommended."
+  </p>
+  <div class="mt-4 flex items-center">
+    <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=64&h=64" alt="User">
+    <div class="ml-4">
+      <div class="font-bold text-sm">Alex Johnson</div>
+      <div class="text-gray-600 text-xs">Entrepreneur</div>
+    </div>
+  </div>
+</div>`
+  },
+  {
+    title: "Gallery Card",
+    preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+  <div class="grid grid-cols-2 gap-1">
+    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=300&h=200" alt="Gallery 1">
+    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=300&h=200" alt="Gallery 2">
+    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1507143550189-fed454f93097?auto=format&fit=crop&w=300&h=200" alt="Gallery 3">
+    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&h=200" alt="Gallery 4">
+  </div>
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Travel Memories</div>
+  </div>
+</div>`,
+    code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+  <div class="grid grid-cols-2 gap-1">
+    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=300&h=200" alt="Gallery 1">
+    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=300&h=200" alt="Gallery 2">
+    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1507143550189-fed454f93097?auto=format&fit=crop&w=300&h=200" alt="Gallery 3">
+    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&h=200" alt="Gallery 4">
+  </div>
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Travel Memories</div>
+  </div>
+</div>`
+  },
+  {
+    title: "Feature Card",
+    preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
+  <div class="flex items-center">
+    <div class="p-3 bg-blue-500 text-white rounded-full">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m2-2h.01M12 6v.01"></path>
+      </svg>
+    </div>
+    <h3 class="ml-4 font-bold text-xl">Seamless Integration</h3>
+  </div>
+  <p class="mt-4 text-gray-700 text-base">
+    Our platform integrates with your favorite tools to create a smooth workflow.
+  </p>
+</div>`,
+    code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
+  <div class="flex items-center">
+    <div class="p-3 bg-blue-500 text-white rounded-full">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m2-2h.01M12 6v.01"></path>
+      </svg>
+    </div>
+    <h3 class="ml-4 font-bold text-xl">Seamless Integration</h3>
+  </div>
+  <p class="mt-4 text-gray-700 text-base">
+    Our platform integrates with your favorite tools to create a smooth workflow.
+  </p>
+</div>`
+  },
+  {
+    title: "Interactive Card",
+    preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white transform transition duration-300 hover:scale-105">
+  <img class="w-full" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&h=400" alt="Interactive">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Interactive Experience</div>
+    <p class="text-gray-700 text-base">
+      Hover over this card to see it come to life with a smooth animation.
+    </p>
+  </div>
+</div>`,
+    code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white transform transition duration-300 hover:scale-105">
+  <img class="w-full" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&h=400" alt="Interactive">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">Interactive Experience</div>
+    <p class="text-gray-700 text-base">
+      Hover over this card to see it come to life with a smooth animation.
     </p>
   </div>
 </div>`
