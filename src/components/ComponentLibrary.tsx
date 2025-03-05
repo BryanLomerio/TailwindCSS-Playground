@@ -447,7 +447,7 @@ const cardComponents = [
     title: "Simple Card",
     preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+    <div class="font-bold text-xl mb-2 dark:text-black">The Coldest Sunset</div>
     <p class="text-gray-700 text-base">
       Experience the calm beauty of a sunset that fills the sky with vibrant hues.
     </p>
@@ -455,7 +455,7 @@ const cardComponents = [
 </div>`,
     code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+    <div class="font-bold text-xl mb-2 dark:text-black">The Coldest Sunset</div>
     <p class="text-gray-700 text-base">
       Experience the calm beauty of a sunset that fills the sky with vibrant hues.
     </p>
@@ -465,116 +465,116 @@ const cardComponents = [
   {
     title: "Card with Image",
     preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-    <img class="w-full" src="https://static1.srcdn.com/wordpress/wp-content/uploads/2024/03/an-older-jinwoo-in-solo-leveling-smiling.jpg" alt="Solo Leveling">
-    <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2">Sung Jin-Woo</div>
-      <p class="text-gray-700 text-base">
-        An older Sung Jin-Woo, the unstoppable hunter, exuding power and confidence.
-      </p>
-    </div>
-  </div>`,
+  <img class="w-full" src="https://static1.srcdn.com/wordpress/wp-content/uploads/2024/03/an-older-jinwoo-in-solo-leveling-smiling.jpg" alt="Solo Leveling">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2 dark:text-black">Sung Jin-Woo</div>
+    <p class="text-gray-700 text-base">
+      An older Sung Jin-Woo, the unstoppable hunter, exuding power and confidence.
+    </p>
+  </div>
+</div>`,
     code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-    <img class="w-full" src="https://static1.srcdn.com/wordpress/wp-content/uploads/2024/03/an-older-jinwoo-in-solo-leveling-smiling.jpg" alt="Solo Leveling">
-    <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2">Sung Jin-Woo</div>
-      <p class="text-gray-700 text-base">
-        An older Sung Jin-Woo, the unstoppable hunter, exuding power and confidence.
-      </p>
-    </div>
-  </div>`
+  <img class="w-full" src="https://static1.srcdn.com/wordpress/wp-content/uploads/2024/03/an-older-jinwoo-in-solo-leveling-smiling.jpg" alt="Solo Leveling">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2 dark:text-black">Sung Jin-Woo</div>
+    <p class="text-gray-700 text-base">
+      An older Sung Jin-Woo, the unstoppable hunter, exuding power and confidence.
+    </p>
+  </div>
+</div>`
   },
   {
     title: "Profile Card",
     preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4">
-    <div class="flex items-center space-x-4">
-      <img class="w-16 h-16 rounded-full" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/04/one-piece-3006218.jpg?tf=3840x" alt="One Piece Luffy">
-      <div>
-        <div class="font-bold text-xl">Monkey D. Luffy</div>
-        <div class="text-gray-600">Captain of the Straw Hat Pirates</div>
-      </div>
+  <div class="flex items-center space-x-4">
+    <img class="w-16 h-16 rounded-full" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/04/one-piece-3006218.jpg?tf=3840x" alt="One Piece Luffy">
+    <div>
+      <div class="font-bold text-xl mb-2 dark:text-black">Monkey D. Luffy</div>
+      <div class="text-gray-600">Captain of the Straw Hat Pirates</div>
     </div>
-    <p class="mt-4 text-gray-700 text-base">
-      Dreaming of becoming the Pirate King, Luffy leads his crew with an unyielding spirit and boundless determination.
-    </p>
-  </div>`,
+  </div>
+  <p class="mt-4 text-gray-700 text-base">
+    Dreaming of becoming the Pirate King, Luffy leads his crew with an unyielding spirit and boundless determination.
+  </p>
+</div>`,
     code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4">
-    <div class="flex items-center space-x-4">
-      <img class="w-16 h-16 rounded-full" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/04/one-piece-3006218.jpg?tf=3840x" alt="One Piece Luffy">
-      <div>
-        <div class="font-bold text-xl">Monkey D. Luffy</div>
-        <div class="text-gray-600">Captain of the Straw Hat Pirates</div>
-      </div>
+  <div class="flex items-center space-x-4">
+    <img class="w-16 h-16 rounded-full" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/04/one-piece-3006218.jpg?tf=3840x" alt="One Piece Luffy">
+    <div>
+      <div class="font-bold text-xl mb-2 dark:text-black">Monkey D. Luffy</div>
+      <div class="text-gray-600">Captain of the Straw Hat Pirates</div>
     </div>
-    <p class="mt-4 text-gray-700 text-base">
-      Dreaming of becoming the Pirate King, Luffy leads his crew with an unyielding spirit and boundless determination.
-    </p>
-  </div>`
+  </div>
+  <p class="mt-4 text-gray-700 text-base">
+    Dreaming of becoming the Pirate King, Luffy leads his crew with an unyielding spirit and boundless determination.
+  </p>
+</div>`
   },
   {
     title: "Pricing Card",
     preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
-    <div class="text-center">
-      <div class="font-bold text-2xl mb-4">Pro Plan</div>
-      <div class="text-4xl font-extrabold">₱299<span class="text-xl">/mo</span></div>
-    </div>
-    <ul class="mt-6 space-y-2">
-      <li class="flex items-center">
-        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-        </svg>
-        Unlimited Projects
-      </li>
-      <li class="flex items-center">
-        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-        </svg>
-        24/7 Support
-      </li>
-      <li class="flex items-center">
-        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-        </svg>
-        Advanced Analytics
-      </li>
-    </ul>
-  </div>`,
+  <div class="text-center">
+    <div class="font-bold text-2xl mb-4 dark:text-black">Pro Plan</div>
+    <div class="text-4xl font-extrabold dark:text-black">₱299<span class="text-xl">/mo</span></div>
+  </div>
+  <ul class="mt-6 space-y-2 dark:text-black">
+    <li class="flex items-center dark:text-black">
+      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+      Unlimited Projects
+    </li>
+    <li class="flex items-center">
+      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+      24/7 Support
+    </li>
+    <li class="flex items-center">
+      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+      Advanced Analytics
+    </li>
+  </ul>
+</div>`,
     code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
-    <div class="text-center">
-      <div class="font-bold text-2xl mb-4">Pro Plan</div>
-      <div class="text-4xl font-extrabold">₱299<span class="text-xl">/mo</span></div>
-    </div>
-    <ul class="mt-6 space-y-2">
-      <li class="flex items-center">
-        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-        </svg>
-        Unlimited Projects
-      </li>
-      <li class="flex items-center">
-        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-        </svg>
-        24/7 Support
-      </li>
-      <li class="flex items-center">
-        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-        </svg>
-        Advanced Analytics
-      </li>
-    </ul>
-  </div>`
+  <div class="text-center">
+    <div class="font-bold text-2xl mb-4 dark:text-black">Pro Plan</div>
+    <div class="text-4xl font-extrabold">₱299<span class="text-xl">/mo</span></div>
+  </div>
+  <ul class="mt-6 space-y-2">
+    <li class="flex items-center">
+      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+      Unlimited Projects
+    </li>
+    <li class="flex items-center">
+      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+      24/7 Support
+    </li>
+    <li class="flex items-center">
+      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+      </svg>
+      Advanced Analytics
+    </li>
+  </ul>
+</div>`
   },
   {
     title: "Product Card",
     preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
   <img class="w-full" src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MQTR3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1687660671097" alt="Product">
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">Wireless Headphones</div>
+    <div class="font-bold text-xl mb-2 dark:text-black">Wireless Headphones</div>
     <p class="text-gray-700 text-base">
       Enjoy high-quality sound with these comfortable, long-lasting headphones.
     </p>
-    <div class="mt-4 flex items-center">
+    <div class="mt-4 flex items-center dark:text-black">
       <span class="text-lg font-bold">₱1299</span>
       <button class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Buy Now</button>
     </div>
@@ -583,7 +583,7 @@ const cardComponents = [
     code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
   <img class="w-full" src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MQTR3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1687660671097" alt="Product">
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">Wireless Headphones</div>
+    <div class="font-bold text-xl mb-2 dark:text-black">Wireless Headphones</div>
     <p class="text-gray-700 text-base">
       Enjoy high-quality sound with these comfortable, long-lasting headphones.
     </p>
@@ -599,7 +599,7 @@ const cardComponents = [
     preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
   <img class="w-full" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&h=400" alt="Blog">
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">Exploring the Ocean Depths</div>
+    <div class="font-bold text-xl mb-2 dark:text-black">Exploring the Ocean Depths</div>
     <p class="text-gray-700 text-base">
       Dive into the mysterious world of the deep sea and discover its hidden wonders.
     </p>
@@ -609,7 +609,7 @@ const cardComponents = [
     code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
   <img class="w-full" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&h=400" alt="Blog">
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">Exploring the Ocean Depths</div>
+    <div class="font-bold text-xl mb-2 dark:text-black">Exploring the Ocean Depths</div>
     <p class="text-gray-700 text-base">
       Dive into the mysterious world of the deep sea and discover its hidden wonders.
     </p>
@@ -626,7 +626,7 @@ const cardComponents = [
   <div class="mt-4 flex items-center">
     <img class="w-10 h-10 rounded-full" src="https://avatars.githubusercontent.com/u/186366590?v=4" alt="User">
     <div class="ml-4">
-      <div class="font-bold text-sm">AninoDev</div>
+      <div class="font-bold text-sm dark:text-black">AninoDev</div>
       <div class="text-gray-600 text-xs">Fullstack Developer</div>
     </div>
   </div>
@@ -638,7 +638,7 @@ const cardComponents = [
   <div class="mt-4 flex items-center">
     <img class="w-10 h-10 rounded-full" src="https://avatars.githubusercontent.com/u/186366590?v=4" alt="User">
     <div class="ml-4">
-      <div class="font-bold text-sm">AninoDev</div>
+      <div class="font-bold text-sm dark:text-black">AninoDev</div>
       <div class="text-gray-600 text-xs">Fullstack Developer</div>
     </div>
   </div>
@@ -654,7 +654,7 @@ const cardComponents = [
     <img class="w-full h-24 object-cover" src="https://skyticket.com/guide/wp-content/uploads/2024/12/iStock-494444306-e1485763922792-680x383.jpg" alt="Gallery 4">
   </div>
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">Travel Memories</div>
+    <div class="font-bold text-xl mb-2 dark:text-black">Travel Memories</div>
   </div>
 </div>`,
     code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
@@ -665,7 +665,7 @@ const cardComponents = [
     <img class="w-full h-24 object-cover" src="https://skyticket.com/guide/wp-content/uploads/2024/12/iStock-494444306-e1485763922792-680x383.jpg" alt="Gallery 4">
   </div>
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">Travel Memories</div>
+    <div class="font-bold text-xl mb-2 dark:text-black">Travel Memories</div>
   </div>
 </div>`
   },
@@ -678,7 +678,7 @@ const cardComponents = [
         <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m2-2h.01M12 6v.01"></path>
       </svg>
     </div>
-    <h3 class="ml-4 font-bold text-xl">Seamless Integration</h3>
+    <h3 class="ml-4 font-bold text-xl dark:text-black">Seamless Integration</h3>
   </div>
   <p class="mt-4 text-gray-700 text-base">
     Our platform integrates with your favorite tools to create a smooth workflow.
@@ -691,7 +691,7 @@ const cardComponents = [
         <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m2-2h.01M12 6v.01"></path>
       </svg>
     </div>
-    <h3 class="ml-4 font-bold text-xl">Seamless Integration</h3>
+    <h3 class="ml-4 font-bold text-xl dark:text-black">Seamless Integration</h3>
   </div>
   <p class="mt-4 text-gray-700 text-base">
     Our platform integrates with your favorite tools to create a smooth workflow.
@@ -703,7 +703,7 @@ const cardComponents = [
     preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white transform transition duration-300 hover:scale-105">
   <img class="w-full" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&h=400" alt="Interactive">
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">Interactive Experience</div>
+    <div class="font-bold text-xl mb-2 dark:text-black">Interactive Experience</div>
     <p class="text-gray-700 text-base">
       Hover over this card to see it come to life with a smooth animation.
     </p>
@@ -712,7 +712,7 @@ const cardComponents = [
     code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white transform transition duration-300 hover:scale-105">
   <img class="w-full" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&h=400" alt="Interactive">
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">Interactive Experience</div>
+    <div class="font-bold text-xl mb-2 dark:text-black">Interactive Experience</div>
     <p class="text-gray-700 text-base">
       Hover over this card to see it come to life with a smooth animation.
     </p>
@@ -795,7 +795,7 @@ const formComponents = [
   <label class="block text-gray-700 text-sm font-bold mb-2" for="country">
     Country
   </label>
-  <select id="country" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+  <select id="country" class="dark:text-black block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
     <option>Philippines</option>
     <option>Korea</option>
     <option>China</option>
@@ -1042,7 +1042,7 @@ const formComponents = [
   <label class="block text-gray-700 text-sm font-bold mb-2" for="colors">
     Choose Colors
   </label>
-  <select id="colors" multiple class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+  <select id="colors" multiple class="dark:text-black block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
     <option>Red</option>
     <option>Green</option>
     <option>Blue</option>
@@ -1115,7 +1115,7 @@ const formComponents = [
   {
     title: "Input Group",
     preview: `<div class="mb-4 flex">
-  <input type="text" class="shadow appearance-none border rounded-l w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Username">
+  <input type="text" class="dark:text-black shadow appearance-none border rounded-l w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Username">
   <button class="px-4 py-2 bg-blue-500 text-white rounded-r hover:bg-blue-600">Submit</button>
 </div>`,
     code: `<div class="mb-4 flex">
@@ -1127,7 +1127,7 @@ const formComponents = [
     title: "Stepper Input",
     preview: `<div class="mb-4 flex items-center">
   <button class="px-3 py-1 bg-gray-300 rounded-l hover:bg-gray-400">-</button>
-  <input type="number" value="1" class="w-16 text-center border-t border-b border-gray-300 focus:outline-none" />
+  <input type="number" value="1" class="dark:text-black w-16 text-center border-t border-b border-gray-300 focus:outline-none" />
   <button class="px-3 py-1 bg-gray-300 rounded-r hover:bg-gray-400">+</button>
 </div>`,
     code: `<div class="mb-4 flex items-center">
@@ -1223,7 +1223,7 @@ const formComponents = [
     title: "Search Bar with Suggestions",
     preview: `<div class="mb-4 relative">
   <input type="search" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search...">
-  <ul class="absolute z-10 left-0 right-0 bg-white border border-gray-300 rounded mt-1">
+  <ul class="dark:text-black absolute z-10 left-0 right-0 bg-white border border-gray-300 rounded mt-1">
     <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Suggestion 1</li>
     <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Suggestion 2</li>
     <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Suggestion 3</li>
@@ -1242,7 +1242,7 @@ const formComponents = [
     title: "Rich Text Editor",
     preview: `<div class="mb-4">
   <div class="border border-gray-300 rounded p-2">
-    <div class="flex space-x-2 mb-2">
+    <div class="flex space-x-2 mb-2 dark:text-black">
       <button class="px-2 py-1 bg-gray-200 rounded">B</button>
       <button class="px-2 py-1 bg-gray-200 rounded">I</button>
       <button class="px-2 py-1 bg-gray-200 rounded">U</button>

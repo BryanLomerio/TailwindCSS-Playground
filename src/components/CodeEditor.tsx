@@ -34,8 +34,8 @@ const CodeEditor = ({ initialValue = defaultTemplate, onChange }: CodeEditorProp
   };
 
   return (
-    <div className="flex flex-col h-full bg-card rounded-md shadow-sm border border-border overflow-hidden animate-fade-in">
-      <div className="flex justify-between items-center px-4 py-2 bg-muted border-b border-border">
+    <div className="flex flex-col h-full bg-card rounded-md shadow-sm border border-border overflow-hidden animate-fade-in ">
+      <div className="flex justify-between items-center px-4 py-2 bg-muted border-b border-border ">
         <span className="text-sm font-medium">HTML + Tailwind CSS</span>
         <Button
           variant="secondary"
