@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import Editor from "react-simple-code-editor";
 import Prism from "prismjs";
-import "prismjs/components/prism-markup"; 
-import "prismjs/themes/prism.css"; 
+import "prismjs/components/prism-markup";
+import "prismjs/themes/prism.css";
 
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -37,15 +37,16 @@ const CodeEditor = ({ initialValue = defaultTemplate, onChange }: CodeEditorProp
     <div className="flex flex-col h-full bg-card rounded-md shadow-sm border border-border overflow-hidden animate-fade-in">
       <div className="flex justify-between items-center px-4 py-2 bg-muted border-b border-border">
         <span className="text-sm font-medium">HTML + Tailwind CSS</span>
-        <Button 
-          variant="secondary" 
-          size="sm" 
-          className="flex items-center gap-1 bg-[#272727] text-primary-foreground hover:bg-[#717171]"
+        <Button
+          variant="secondary"
+          size="sm"
+          className="flex items-center gap-1 bg-[#272727] text-primary-foreground hover:bg-[#717171] dark:bg-[#bb86fc] dark:text-white dark:hover:bg-[#7048a0]"
           onClick={handleRun}
         >
-          <Play className="w-4 h-4 te" />
+          <Play className="w-4 h-4" />
           Run
         </Button>
+
       </div>
       <Editor
         value={code}

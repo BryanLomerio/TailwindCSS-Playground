@@ -20,11 +20,32 @@ const ComponentLibrary = () => {
     <div className="p-4 h-full overflow-auto editor-scrollbar animate-fade-in">
       <Tabs defaultValue={category} onValueChange={setCategory}>
         <TabsList className="mb-4 grid grid-cols-4 w-full">
-          <TabsTrigger value="buttons">Buttons</TabsTrigger>
-          <TabsTrigger value="cards">Cards</TabsTrigger>
-          <TabsTrigger value="forms">Forms</TabsTrigger>
-          <TabsTrigger value="navigation">Navigation</TabsTrigger>
+          <TabsTrigger
+            value="buttons"
+            className="data-[state=active]:bg-[#bb86fc] hover:bg-[#cba4fa4f] dark:data-[state=active]:bg-[#bb86fc] dark:hover:bg-[#cba4fa4f]"
+          >
+            Buttons
+          </TabsTrigger>
+          <TabsTrigger
+            value="cards"
+            className="data-[state=active]:bg-[#bb86fc] hover:bg-[#cba4fa4f] dark:data-[state=active]:bg-[#bb86fc] dark:hover:bg-[#cba4fa4f]"
+          >
+            Cards
+          </TabsTrigger>
+          <TabsTrigger
+            value="forms"
+            className="data-[state=active]:bg-[#bb86fc] hover:bg-[#cba4fa4f] dark:data-[state=active]:bg-[#bb86fc] dark:hover:bg-[#cba4fa4f]"
+          >
+            Forms
+          </TabsTrigger>
+          <TabsTrigger
+            value="navigation"
+            className="data-[state=active]:bg-[#bb86fc] hover:bg-[#cba4fa4f] dark:data-[state=active]:bg-[#bb86fc] dark:hover:bg-[#cba4fa4f]"
+          >
+            Navigation
+          </TabsTrigger>
         </TabsList>
+
 
         <TabsContent value="buttons" className="space-y-6">
           <h2 className="text-lg font-semibold mb-4">Button Components</h2>

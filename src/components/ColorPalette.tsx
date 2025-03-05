@@ -7,7 +7,7 @@ import { Copy } from "lucide-react";
 const ColorPalette = () => {
   const { toast } = useToast();
   const [colorCategory, setColorCategory] = useState("default");
-  
+
   const copyColor = (color: string) => {
     navigator.clipboard.writeText(color);
     toast({
@@ -24,22 +24,43 @@ const ColorPalette = () => {
           Click on any color to copy its class name to your clipboard
         </p>
       </div>
-      
+
       <Tabs defaultValue={colorCategory} onValueChange={setColorCategory}>
         <TabsList className="mb-4 grid grid-cols-4 w-full">
-          <TabsTrigger value="default">Default</TabsTrigger>
-          <TabsTrigger value="text">Text</TabsTrigger>
-          <TabsTrigger value="background">Background</TabsTrigger>
-          <TabsTrigger value="border">Border</TabsTrigger>
+          <TabsTrigger
+            value="default"
+            className="data-[state=active]:bg-[#bb86fc] hover:bg-[#cba4fa4f] dark:data-[state=active]:bg-[#bb86fc] dark:hover:bg-[#cba4fa4f]"
+          >
+            Default
+          </TabsTrigger>
+          <TabsTrigger
+            value="text"
+            className="data-[state=active]:bg-[#bb86fc] hover:bg-[#cba4fa4f] dark:data-[state=active]:bg-[#bb86fc] dark:hover:bg-[#cba4fa4f]"
+          >
+            Text
+          </TabsTrigger>
+          <TabsTrigger
+            value="background"
+            className="data-[state=active]:bg-[#bb86fc] hover:bg-[#cba4fa4f] dark:data-[state=active]:bg-[#bb86fc] dark:hover:bg-[#cba4fa4f]"
+          >
+            Background
+          </TabsTrigger>
+          <TabsTrigger
+            value="border"
+            className="data-[state=active]:bg-[#bb86fc] hover:bg-[#cba4fa4f] dark:data-[state=active]:bg-[#bb86fc] dark:hover:bg-[#cba4fa4f]"
+          >
+            Border
+          </TabsTrigger>
         </TabsList>
-        
+
+
         <TabsContent value="default" className="space-y-6">
           {Object.entries(colorGroups).map(([groupName, colors]) => (
             <div key={groupName} className="mb-8">
               <h3 className="text-base font-semibold mb-3 capitalize">{groupName}</h3>
               <div className="color-grid">
                 {colors.map((color) => (
-                  <ColorCard 
+                  <ColorCard
                     key={color.class}
                     name={color.name}
                     bgClass={color.class}
@@ -51,7 +72,7 @@ const ColorPalette = () => {
             </div>
           ))}
         </TabsContent>
-        
+
         <TabsContent value="text" className="space-y-6">
           {Object.entries(colorGroups).map(([groupName, colors]) => (
             <div key={groupName} className="mb-8">
@@ -60,7 +81,7 @@ const ColorPalette = () => {
                 {colors.map((color) => {
                   const textClass = color.class.replace('bg-', 'text-');
                   return (
-                    <ColorCard 
+                    <ColorCard
                       key={textClass}
                       name={color.name}
                       bgClass=""
@@ -74,14 +95,14 @@ const ColorPalette = () => {
             </div>
           ))}
         </TabsContent>
-        
+
         <TabsContent value="background" className="space-y-6">
           {Object.entries(colorGroups).map(([groupName, colors]) => (
             <div key={groupName} className="mb-8">
               <h3 className="text-base font-semibold mb-3 capitalize">{groupName}</h3>
               <div className="color-grid">
                 {colors.map((color) => (
-                  <ColorCard 
+                  <ColorCard
                     key={color.class}
                     name={color.name}
                     bgClass={color.class}
@@ -93,7 +114,7 @@ const ColorPalette = () => {
             </div>
           ))}
         </TabsContent>
-        
+
         <TabsContent value="border" className="space-y-6">
           {Object.entries(colorGroups).map(([groupName, colors]) => (
             <div key={groupName} className="mb-8">
@@ -102,7 +123,7 @@ const ColorPalette = () => {
                 {colors.map((color) => {
                   const borderClass = color.class.replace('bg-', 'border-');
                   return (
-                    <ColorCard 
+                    <ColorCard
                       key={borderClass}
                       name={color.name}
                       borderClass={borderClass}
@@ -129,16 +150,16 @@ interface ColorCardProps {
   onCopy: () => void;
 }
 
-const ColorCard = ({ 
-  name, 
-  className, 
-  bgClass, 
-  borderClass, 
+const ColorCard = ({
+  name,
+  className,
+  bgClass,
+  borderClass,
   textColorClass,
-  onCopy 
+  onCopy
 }: ColorCardProps) => {
   return (
-    <div 
+    <div
       className="border border-border rounded-lg overflow-hidden bg-card shadow-sm transition-all hover:shadow-md cursor-pointer"
       onClick={onCopy}
     >
