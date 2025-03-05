@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -37,20 +36,29 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
   };
 
   return (
-    <header className="border-b border-border p-4 flex flex-col sm:flex-row items-center justify-between gap-4 animate-fade-in">
+    <header className="border-b border-border p-4 flex flex-col sm:flex-row items-center justify-between gap-4 animate-fade-in dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100">
       <div className="flex items-center gap-2">
         <h1 className="text-xl font-semibold">Tailwind Playground</h1>
       </div>
 
       <Tabs defaultValue={activeTab} className="w-full sm:w-auto" onValueChange={setActiveTab}>
         <TabsList className="w-full sm:w-auto grid grid-cols-3">
-          <TabsTrigger value="editor" className="data-[state=active]:bg-[#272727] data-[state=active]:text-primary-foreground">
+          <TabsTrigger
+            value="editor"
+            className="data-[state=active]:bg-[#272727] dark:data-[state=active]:bg-[#bb86fc] hover:bg-[#3a3a3a] dark:hover:bg-[#cba4fa44] data-[state=active]:text-primary-foreground dark:data-[state=active]:text-white"
+          >
             Editor
           </TabsTrigger>
-          <TabsTrigger value="components" className="data-[state=active]:bg-[#272727] data-[state=active]:text-primary-foreground">
+          <TabsTrigger
+            value="components"
+            className="data-[state=active]:bg-[#272727] dark:data-[state=active]:bg-[#bb86fc] hover:bg-[#3a3a3a] dark:hover:bg-[#cba4fa5b] data-[state=active]:text-primary-foreground dark:data-[state=active]:text-white"
+          >
             Components
           </TabsTrigger>
-          <TabsTrigger value="colors" className="data-[state=active]:bg-[#272727] data-[state=active]:text-primary-foreground">
+          <TabsTrigger
+            value="colors"
+            className="data-[state=active]:bg-[#272727] dark:data-[state=active]:bg-[#bb86fc] hover:bg-[#3a3a3a] dark:hover:bg-[#cba4fa4f] data-[state=active]:text-primary-foreground dark:data-[state=active]:text-white"
+          >
             Colors
           </TabsTrigger>
         </TabsList>
