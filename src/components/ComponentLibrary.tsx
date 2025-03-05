@@ -602,10 +602,10 @@ const cardComponents = [
     "This product completely changed my life! Highly recommended."
   </p>
   <div class="mt-4 flex items-center">
-    <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=64&h=64" alt="User">
+    <img class="w-10 h-10 rounded-full" src="https://avatars.githubusercontent.com/u/186366590?v=4" alt="User">
     <div class="ml-4">
-      <div class="font-bold text-sm">Alex Johnson</div>
-      <div class="text-gray-600 text-xs">Entrepreneur</div>
+      <div class="font-bold text-sm">AninoDev</div>
+      <div class="text-gray-600 text-xs">Fullstack Developer</div>
     </div>
   </div>
 </div>`,
@@ -614,10 +614,10 @@ const cardComponents = [
     "This product completely changed my life! Highly recommended."
   </p>
   <div class="mt-4 flex items-center">
-    <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=64&h=64" alt="User">
+    <img class="w-10 h-10 rounded-full" src="https://avatars.githubusercontent.com/u/186366590?v=4" alt="User">
     <div class="ml-4">
-      <div class="font-bold text-sm">Alex Johnson</div>
-      <div class="text-gray-600 text-xs">Entrepreneur</div>
+      <div class="font-bold text-sm">AninoDev</div>
+      <div class="text-gray-600 text-xs">Fullstack Developer</div>
     </div>
   </div>
 </div>`
@@ -626,10 +626,10 @@ const cardComponents = [
     title: "Gallery Card",
     preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
   <div class="grid grid-cols-2 gap-1">
-    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=300&h=200" alt="Gallery 1">
-    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=300&h=200" alt="Gallery 2">
-    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1507143550189-fed454f93097?auto=format&fit=crop&w=300&h=200" alt="Gallery 3">
-    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&h=200" alt="Gallery 4">
+    <img class="w-full h-24 object-cover" src="https://images.lifestyleasia.com/wp-content/uploads/sites/2/2022/12/14125211/philippines-tourism-1.jpeg" alt="Gallery 1">
+    <img class="w-full h-24 object-cover" src="https://www.outlooktravelmag.com/media/philippines-1-1621524923.profileImage.2x-jpg-webp.webp" alt="Gallery 2">
+    <img class="w-full h-24 object-cover" src="https://static1.detourista.com/wp/wp-content/uploads/Unorganized/Philippines-Attractions-Featured-Image-3x2-1200x628.jpg" alt="Gallery 3">
+    <img class="w-full h-24 object-cover" src="https://skyticket.com/guide/wp-content/uploads/2024/12/iStock-494444306-e1485763922792-680x383.jpg" alt="Gallery 4">
   </div>
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">Travel Memories</div>
@@ -637,10 +637,10 @@ const cardComponents = [
 </div>`,
     code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
   <div class="grid grid-cols-2 gap-1">
-    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=300&h=200" alt="Gallery 1">
-    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=300&h=200" alt="Gallery 2">
-    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1507143550189-fed454f93097?auto=format&fit=crop&w=300&h=200" alt="Gallery 3">
-    <img class="w-full h-24 object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&h=200" alt="Gallery 4">
+    <img class="w-full h-24 object-cover" src="https://images.lifestyleasia.com/wp-content/uploads/sites/2/2022/12/14125211/philippines-tourism-1.jpeg" alt="Gallery 1">
+    <img class="w-full h-24 object-cover" src="https://www.outlooktravelmag.com/media/philippines-1-1621524923.profileImage.2x-jpg-webp.webp" alt="Gallery 2">
+    <img class="w-full h-24 object-cover" src="https://static1.detourista.com/wp/wp-content/uploads/Unorganized/Philippines-Attractions-Featured-Image-3x2-1200x628.jpg" alt="Gallery 3">
+    <img class="w-full h-24 object-cover" src="https://skyticket.com/guide/wp-content/uploads/2024/12/iStock-494444306-e1485763922792-680x383.jpg" alt="Gallery 4">
   </div>
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">Travel Memories</div>
