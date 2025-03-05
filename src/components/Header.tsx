@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { Copy, Github, Save } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 interface HeaderProps {
   activeTab: string;
@@ -40,7 +41,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
       <div className="flex items-center gap-2">
         <h1 className="text-xl font-semibold">Tailwind Playground</h1>
       </div>
-      
+
       <Tabs defaultValue={activeTab} className="w-full sm:w-auto" onValueChange={setActiveTab}>
         <TabsList className="w-full sm:w-auto grid grid-cols-3">
           <TabsTrigger value="editor" className="data-[state=active]:bg-[#272727] data-[state=active]:text-primary-foreground">
@@ -54,20 +55,21 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
           </TabsTrigger>
         </TabsList>
       </Tabs>
-      
+
       <div className="flex items-center gap-2">
-        <Button 
-          variant="outline" 
-          size="sm" 
-          className="flex items-center gap-1" 
+        <ThemeToggle />
+        <Button
+          variant="outline"
+          size="sm"
+          className="flex items-center gap-1"
           onClick={copyToClipboard}
         >
           <Copy className="w-4 h-4" />
           <span className="hidden sm:inline">Copy</span>
         </Button>
-        <Button 
-          variant="outline" 
-          size="sm" 
+        <Button
+          variant="outline"
+          size="sm"
           className="flex items-center gap-1"
           onClick={saveCode}
           disabled={saving}
@@ -75,9 +77,9 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
           <Save className="w-4 h-4" />
           <span className="hidden sm:inline">{saving ? "Saving..." : "Save"}</span>
         </Button>
-        <Button 
-          variant="outline" 
-          size="sm" 
+        <Button
+          variant="outline"
+          size="sm"
           className="flex items-center gap-1"
           asChild
         >
