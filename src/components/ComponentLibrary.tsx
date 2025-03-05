@@ -443,105 +443,105 @@ const cardComponents = [
   {
     title: "Card with Image",
     preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-  <img class="w-full" src="https://images.unsplash.com/photo-1596079890744-c1a0462d0975?auto=format&fit=crop&w=600&h=400" alt="Mountain">
-  <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">Mountain View</div>
-    <p class="text-gray-700 text-base">
-      A beautiful mountain landscape view.
-    </p>
-  </div>
-</div>`,
+    <img class="w-full" src="https://static1.srcdn.com/wordpress/wp-content/uploads/2024/03/an-older-jinwoo-in-solo-leveling-smiling.jpg" alt="Solo Leveling">
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">Sung Jin-Woo</div>
+      <p class="text-gray-700 text-base">
+        An older Sung Jin-Woo, the unstoppable hunter, exuding power and confidence.
+      </p>
+    </div>
+  </div>`,
     code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-  <img class="w-full" src="https://images.unsplash.com/photo-1596079890744-c1a0462d0975?auto=format&fit=crop&w=600&h=400" alt="Mountain">
-  <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">Mountain View</div>
-    <p class="text-gray-700 text-base">
-      A beautiful mountain landscape view.
-    </p>
-  </div>
-</div>`
+    <img class="w-full" src="https://static1.srcdn.com/wordpress/wp-content/uploads/2024/03/an-older-jinwoo-in-solo-leveling-smiling.jpg" alt="Solo Leveling">
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">Sung Jin-Woo</div>
+      <p class="text-gray-700 text-base">
+        An older Sung Jin-Woo, the unstoppable hunter, exuding power and confidence.
+      </p>
+    </div>
+  </div>`
   },
   {
     title: "Profile Card",
     preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4">
-  <div class="flex items-center space-x-4">
-    <img class="w-16 h-16 rounded-full" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=64&h=64" alt="Profile">
-    <div>
-      <div class="font-bold text-xl">Jane Doe</div>
-      <div class="text-gray-600">Software Engineer</div>
+    <div class="flex items-center space-x-4">
+      <img class="w-16 h-16 rounded-full" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/04/one-piece-3006218.jpg?tf=3840x" alt="One Piece Luffy">
+      <div>
+        <div class="font-bold text-xl">Monkey D. Luffy</div>
+        <div class="text-gray-600">Captain of the Straw Hat Pirates</div>
+      </div>
     </div>
-  </div>
-  <p class="mt-4 text-gray-700 text-base">
-    Passionate about building scalable web applications and exploring new technologies.
-  </p>
-</div>`,
+    <p class="mt-4 text-gray-700 text-base">
+      Dreaming of becoming the Pirate King, Luffy leads his crew with an unyielding spirit and boundless determination.
+    </p>
+  </div>`,
     code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4">
-  <div class="flex items-center space-x-4">
-    <img class="w-16 h-16 rounded-full" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=64&h=64" alt="Profile">
-    <div>
-      <div class="font-bold text-xl">Jane Doe</div>
-      <div class="text-gray-600">Software Engineer</div>
+    <div class="flex items-center space-x-4">
+      <img class="w-16 h-16 rounded-full" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/04/one-piece-3006218.jpg?tf=3840x" alt="One Piece Luffy">
+      <div>
+        <div class="font-bold text-xl">Monkey D. Luffy</div>
+        <div class="text-gray-600">Captain of the Straw Hat Pirates</div>
+      </div>
     </div>
-  </div>
-  <p class="mt-4 text-gray-700 text-base">
-    Passionate about building scalable web applications and exploring new technologies.
-  </p>
-</div>`
+    <p class="mt-4 text-gray-700 text-base">
+      Dreaming of becoming the Pirate King, Luffy leads his crew with an unyielding spirit and boundless determination.
+    </p>
+  </div>`
   },
   {
     title: "Pricing Card",
     preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
-  <div class="text-center">
-    <div class="font-bold text-2xl mb-4">Pro Plan</div>
-    <div class="text-4xl font-extrabold">$29<span class="text-xl">/mo</span></div>
-  </div>
-  <ul class="mt-6 space-y-2">
-    <li class="flex items-center">
-      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-      </svg>
-      Unlimited Projects
-    </li>
-    <li class="flex items-center">
-      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-      </svg>
-      24/7 Support
-    </li>
-    <li class="flex items-center">
-      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-      </svg>
-      Advanced Analytics
-    </li>
-  </ul>
-</div>`,
+    <div class="text-center">
+      <div class="font-bold text-2xl mb-4">Pro Plan</div>
+      <div class="text-4xl font-extrabold">₱299<span class="text-xl">/mo</span></div>
+    </div>
+    <ul class="mt-6 space-y-2">
+      <li class="flex items-center">
+        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+        </svg>
+        Unlimited Projects
+      </li>
+      <li class="flex items-center">
+        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+        </svg>
+        24/7 Support
+      </li>
+      <li class="flex items-center">
+        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+        </svg>
+        Advanced Analytics
+      </li>
+    </ul>
+  </div>`,
     code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
-  <div class="text-center">
-    <div class="font-bold text-2xl mb-4">Pro Plan</div>
-    <div class="text-4xl font-extrabold">$29<span class="text-xl">/mo</span></div>
-  </div>
-  <ul class="mt-6 space-y-2">
-    <li class="flex items-center">
-      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-      </svg>
-      Unlimited Projects
-    </li>
-    <li class="flex items-center">
-      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-      </svg>
-      24/7 Support
-    </li>
-    <li class="flex items-center">
-      <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-      </svg>
-      Advanced Analytics
-    </li>
-  </ul>
-</div>`
+    <div class="text-center">
+      <div class="font-bold text-2xl mb-4">Pro Plan</div>
+      <div class="text-4xl font-extrabold">₱299<span class="text-xl">/mo</span></div>
+    </div>
+    <ul class="mt-6 space-y-2">
+      <li class="flex items-center">
+        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+        </svg>
+        Unlimited Projects
+      </li>
+      <li class="flex items-center">
+        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+        </svg>
+        24/7 Support
+      </li>
+      <li class="flex items-center">
+        <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+        </svg>
+        Advanced Analytics
+      </li>
+    </ul>
+  </div>`
   },
   {
     title: "Product Card",
