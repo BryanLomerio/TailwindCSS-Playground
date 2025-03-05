@@ -5,6 +5,7 @@ import Preview from "@/components/Preview";
 import ComponentLibrary from "@/components/ComponentLibrary";
 import ColorPalette from "@/components/ColorPalette";
 import Socials from "@/components/ui/Socials";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("editor");
@@ -34,6 +35,7 @@ const Index = () => {
         setActiveTab={setActiveTab}
         htmlCode={htmlCode}
       />
+      <ThemeToggle />
 
       <main className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 p-4 overflow-hidden">
         {activeTab === "editor" ? (
