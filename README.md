@@ -53,10 +53,3 @@ Visit: [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## **Usage**  
-
-🚀 **Edit Code** – Modify components and styles in the built-in editor.  
-👀 **Live Preview** – See real-time updates in the split-screen view.  
-🛠️ **Explore Components** – Use pre-built UI elements to design quickly.  
-🎨 **Customize Colors** – Adjust Tailwind’s palette to fit your project.  
-
