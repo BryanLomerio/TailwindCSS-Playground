@@ -63,8 +63,8 @@ const ComponentLibrary = () => {
         </TabsContent>
 
         <TabsContent value="cards" className="space-y-6">
-          <h2 className="text-lg font-semibold mb-4">Card Components</h2>
-          <div className="component-grid">
+          <h2 className="text-lg font-semibold mb-4 dark:text-white">Card Components</h2>
+          <div className="component-grid dark:text-white">
             {cardComponents.map((component, index) => (
               <ComponentCard
                 key={index}
@@ -76,6 +76,7 @@ const ComponentLibrary = () => {
             ))}
           </div>
         </TabsContent>
+
 
         <TabsContent value="forms" className="space-y-6">
           <h2 className="text-lg font-semibold mb-4">Form Components</h2>

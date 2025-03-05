@@ -69,7 +69,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
         <Button
           variant="outline"
           size="sm"
-          className="flex items-center gap-1"
+          className="flex items-center gap-1 dark:bg-[#bb86fc]"
           onClick={copyToClipboard}
         >
           <Copy className="w-4 h-4" />
@@ -78,7 +78,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
         <Button
           variant="outline"
           size="sm"
-          className="flex items-center gap-1"
+          className="flex items-center gap-1 dark:bg-[#bb86fc]"
           onClick={saveCode}
           disabled={saving}
         >
@@ -88,7 +88,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
         <Button
           variant="outline"
           size="sm"
-          className="flex items-center gap-1"
+          className="flex items-center gap-1 dark:bg-[#bb86fc]"
           asChild
         >
           <a href="https://github.com/BryanLomerio" target="_blank" rel="noopener noreferrer">

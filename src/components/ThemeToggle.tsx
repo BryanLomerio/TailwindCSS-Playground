@@ -7,7 +7,7 @@ const ThemeToggle: React.FC = () => {
     return (
         <button
             onClick={toggleTheme}
-            className="p-2 rounded bg-none dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+            className="p-2 rounded bg-none dark:bg-[#bb86fc] text-gray-800 dark:text-gray-200"
         >
             {theme === "light" ? (
                 <Moon className="w-5 h-5" />

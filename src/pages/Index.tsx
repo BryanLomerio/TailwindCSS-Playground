@@ -4,7 +4,7 @@ import CodeEditor from "@/components/CodeEditor";
 import Preview from "@/components/Preview";
 import ComponentLibrary from "@/components/ComponentLibrary";
 import ColorPalette from "@/components/ColorPalette";
-import Socials from "@/components/ui/Socials";
+/* import Socials from "@/components/ui/Socials"; */
 /* import ThemeToggle from "@/components/ThemeToggle"; */
 
 const Index = () => {
@@ -58,7 +58,7 @@ const Index = () => {
         )}
       </main>
       <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-        <Socials />
+        {/*  <Socials /> */}
       </div>
     </div>
   );
