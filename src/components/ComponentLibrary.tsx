@@ -546,27 +546,27 @@ const cardComponents = [
   {
     title: "Product Card",
     preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-  <img class="w-full" src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&h=400" alt="Product">
+  <img class="w-full" src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MQTR3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1687660671097" alt="Product">
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">Wireless Headphones</div>
     <p class="text-gray-700 text-base">
       Enjoy high-quality sound with these comfortable, long-lasting headphones.
     </p>
     <div class="mt-4 flex items-center">
-      <span class="text-lg font-bold">$99</span>
+      <span class="text-lg font-bold">₱1299</span>
       <button class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Buy Now</button>
     </div>
   </div>
 </div>`,
     code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-  <img class="w-full" src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&h=400" alt="Product">
+  <img class="w-full" src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MQTR3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1687660671097" alt="Product">
   <div class="px-6 py-4">
     <div class="font-bold text-xl mb-2">Wireless Headphones</div>
     <p class="text-gray-700 text-base">
       Enjoy high-quality sound with these comfortable, long-lasting headphones.
     </p>
     <div class="mt-4 flex items-center">
-      <span class="text-lg font-bold">$99</span>
+      <span class="text-lg font-bold">₱1299</span>
       <button class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Buy Now</button>
     </div>
   </div>
