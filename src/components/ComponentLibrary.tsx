@@ -912,6 +912,332 @@ const formComponents = [
   </label>
   <input id="date" type="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
 </div>`
+  },
+  {
+    title: "Number Input",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="age">
+    Age
+  </label>
+  <input id="age" type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your age">
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="age">
+    Age
+  </label>
+  <input id="age" type="number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your age">
+</div>`
+  },
+  {
+    title: "URL Input",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="website">
+    Website
+  </label>
+  <input id="website" type="url" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="https://example.com">
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="website">
+    Website
+  </label>
+  <input id="website" type="url" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="https://example.com">
+</div>`
+  },
+  {
+    title: "Color Picker",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="favcolor">
+    Favorite Color
+  </label>
+  <input id="favcolor" type="color" class="w-16 h-10 p-0 border-0" value="#ff0000">
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="favcolor">
+    Favorite Color
+  </label>
+  <input id="favcolor" type="color" class="w-16 h-10 p-0 border-0" value="#ff0000">
+</div>`
+  },
+  {
+    title: "Time Picker",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="appt-time">
+    Appointment Time
+  </label>
+  <input id="appt-time" type="time" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="appt-time">
+    Appointment Time
+  </label>
+  <input id="appt-time" type="time" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+</div>`
+  },
+  {
+    title: "Month Picker",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="month">
+    Select Month
+  </label>
+  <input id="month" type="month" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="month">
+    Select Month
+  </label>
+  <input id="month" type="month" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+</div>`
+  },
+  {
+    title: "Week Picker",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="week">
+    Select Week
+  </label>
+  <input id="week" type="week" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="week">
+    Select Week
+  </label>
+  <input id="week" type="week" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+</div>`
+  },
+  {
+    title: "Hidden Input",
+    preview: `<div class="mb-4">
+  <input id="hidden" type="hidden" value="secret">
+  <p class="text-gray-700 text-sm">Hidden input with value "secret"</p>
+</div>`,
+    code: `<div class="mb-4">
+  <input id="hidden" type="hidden" value="secret">
+  <p class="text-gray-700 text-sm">Hidden input with value "secret"</p>
+</div>`
+  },
+  {
+    title: "Multi-Select Dropdown",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="colors">
+    Choose Colors
+  </label>
+  <select id="colors" multiple class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+    <option>Red</option>
+    <option>Green</option>
+    <option>Blue</option>
+    <option>Yellow</option>
+  </select>
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="colors">
+    Choose Colors
+  </label>
+  <select id="colors" multiple class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+    <option>Red</option>
+    <option>Green</option>
+    <option>Blue</option>
+    <option>Yellow</option>
+  </select>
+</div>`
+  },
+  {
+    title: "Captcha Input",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="captcha">
+    Enter Captcha
+  </label>
+  <div class="flex items-center">
+    <input id="captcha" type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Type the characters">
+    <img src="https://via.placeholder.com/100x40?text=CAPTCHA" alt="Captcha" class="ml-4">
+  </div>
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="captcha">
+    Enter Captcha
+  </label>
+  <div class="flex items-center">
+    <input id="captcha" type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Type the characters">
+    <img src="https://via.placeholder.com/100x40?text=CAPTCHA" alt="Captcha" class="ml-4">
+  </div>
+</div>`
+  },
+  {
+    title: "Floating Label Input",
+    preview: `<div class="mb-4 relative">
+  <input id="floating" type="text" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+  <label for="floating" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Floating Label</label>
+</div>`,
+    code: `<div class="mb-4 relative">
+  <input id="floating" type="text" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded border border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+  <label for="floating" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Floating Label</label>
+</div>`
+  },
+  {
+    title: "Input with Icon",
+    preview: `<div class="mb-4 relative">
+  <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6M3 10a7 7 0 1114 0 7 7 0 01-14 0z"></path>
+    </svg>
+  </span>
+  <input id="icon-input" type="text" class="pl-10 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search here">
+</div>`,
+    code: `<div class="mb-4 relative">
+  <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6M3 10a7 7 0 1114 0 7 7 0 01-14 0z"></path>
+    </svg>
+  </span>
+  <input id="icon-input" type="text" class="pl-10 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search here">
+</div>`
+  },
+  {
+    title: "Input Group",
+    preview: `<div class="mb-4 flex">
+  <input type="text" class="shadow appearance-none border rounded-l w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Username">
+  <button class="px-4 py-2 bg-blue-500 text-white rounded-r hover:bg-blue-600">Submit</button>
+</div>`,
+    code: `<div class="mb-4 flex">
+  <input type="text" class="shadow appearance-none border rounded-l w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Username">
+  <button class="px-4 py-2 bg-blue-500 text-white rounded-r hover:bg-blue-600">Submit</button>
+</div>`
+  },
+  {
+    title: "Stepper Input",
+    preview: `<div class="mb-4 flex items-center">
+  <button class="px-3 py-1 bg-gray-300 rounded-l hover:bg-gray-400">-</button>
+  <input type="number" value="1" class="w-16 text-center border-t border-b border-gray-300 focus:outline-none" />
+  <button class="px-3 py-1 bg-gray-300 rounded-r hover:bg-gray-400">+</button>
+</div>`,
+    code: `<div class="mb-4 flex items-center">
+  <button class="px-3 py-1 bg-gray-300 rounded-l hover:bg-gray-400">-</button>
+  <input type="number" value="1" class="w-16 text-center border-t border-b border-gray-300 focus:outline-none" />
+  <button class="px-3 py-1 bg-gray-300 rounded-r hover:bg-gray-400">+</button>
+</div>`
+  },
+  {
+    title: "File Upload Drag & Drop",
+    preview: `<div class="mb-4 border-2 border-dashed border-gray-300 rounded p-6 text-center">
+  <p class="text-gray-600">Drag and drop your file here, or click to select file</p>
+  <input type="file" class="hidden" />
+</div>`,
+    code: `<div class="mb-4 border-2 border-dashed border-gray-300 rounded p-6 text-center">
+  <p class="text-gray-600">Drag and drop your file here, or click to select file</p>
+  <input type="file" class="hidden" />
+</div>`
+  },
+  {
+    title: "Switch Toggle with Label",
+    preview: `<div class="mb-4 flex items-center">
+  <label class="mr-4 text-gray-700 font-bold" for="switch2">Enable Notifications</label>
+  <label for="switch2" class="flex items-center cursor-pointer">
+    <div class="relative">
+      <input id="switch2" type="checkbox" class="sr-only">
+      <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+      <div class="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+    </div>
+  </label>
+</div>`,
+    code: `<div class="mb-4 flex items-center">
+  <label class="mr-4 text-gray-700 font-bold" for="switch2">Enable Notifications</label>
+  <label for="switch2" class="flex items-center cursor-pointer">
+    <div class="relative">
+      <input id="switch2" type="checkbox" class="sr-only">
+      <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+      <div class="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+    </div>
+  </label>
+</div>`
+  },
+  {
+    title: "Text Input with Validation",
+    preview: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="validation">
+    Username
+  </label>
+  <input id="validation" type="text" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Invalid username">
+  <p class="text-red-500 text-xs italic mt-2">Please choose a username.</p>
+</div>`,
+    code: `<div class="mb-4">
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="validation">
+    Username
+  </label>
+  <input id="validation" type="text" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Invalid username">
+  <p class="text-red-500 text-xs italic mt-2">Please choose a username.</p>
+</div>`
+  },
+  {
+    title: "Input with Button",
+    preview: `<div class="mb-4 flex">
+  <input type="text" class="shadow appearance-none border rounded-l w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter promo code">
+  <button class="px-4 py-2 bg-green-500 text-white rounded-r hover:bg-green-600">Apply</button>
+</div>`,
+    code: `<div class="mb-4 flex">
+  <input type="text" class="shadow appearance-none border rounded-l w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter promo code">
+  <button class="px-4 py-2 bg-green-500 text-white rounded-r hover:bg-green-600">Apply</button>
+</div>`
+  },
+  {
+    title: "Input with Icon and Button",
+    preview: `<div class="mb-4 flex relative">
+  <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6M3 10a7 7 0 1114 0 7 7 0 01-14 0z"></path>
+    </svg>
+  </span>
+  <input type="text" class="pl-10 shadow appearance-none border rounded-l w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search products">
+  <button class="px-4 py-2 bg-purple-500 text-white rounded-r hover:bg-purple-600">Go</button>
+</div>`,
+    code: `<div class="mb-4 flex relative">
+  <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6M3 10a7 7 0 1114 0 7 7 0 01-14 0z"></path>
+    </svg>
+  </span>
+  <input type="text" class="pl-10 shadow appearance-none border rounded-l w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search products">
+  <button class="px-4 py-2 bg-purple-500 text-white rounded-r hover:bg-purple-600">Go</button>
+</div>`
+  },
+  {
+    title: "Search Bar with Suggestions",
+    preview: `<div class="mb-4 relative">
+  <input type="search" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search...">
+  <ul class="absolute z-10 left-0 right-0 bg-white border border-gray-300 rounded mt-1">
+    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Suggestion 1</li>
+    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Suggestion 2</li>
+    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Suggestion 3</li>
+  </ul>
+</div>`,
+    code: `<div class="mb-4 relative">
+  <input type="search" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Search...">
+  <ul class="absolute z-10 left-0 right-0 bg-white border border-gray-300 rounded mt-1">
+    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Suggestion 1</li>
+    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Suggestion 2</li>
+    <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Suggestion 3</li>
+  </ul>
+</div>`
+  },
+  {
+    title: "Rich Text Editor",
+    preview: `<div class="mb-4">
+  <div class="border border-gray-300 rounded p-2">
+    <div class="flex space-x-2 mb-2">
+      <button class="px-2 py-1 bg-gray-200 rounded">B</button>
+      <button class="px-2 py-1 bg-gray-200 rounded">I</button>
+      <button class="px-2 py-1 bg-gray-200 rounded">U</button>
+    </div>
+    <textarea class="w-full h-32 p-2 focus:outline-none" placeholder="Enter your text here..."></textarea>
+  </div>
+</div>`,
+    code: `<div class="mb-4">
+  <div class="border border-gray-300 rounded p-2">
+    <div class="flex space-x-2 mb-2">
+      <button class="px-2 py-1 bg-gray-200 rounded">B</button>
+      <button class="px-2 py-1 bg-gray-200 rounded">I</button>
+      <button class="px-2 py-1 bg-gray-200 rounded">U</button>
+    </div>
+    <textarea class="w-full h-32 p-2 focus:outline-none" placeholder="Enter your text here..."></textarea>
+  </div>
+</div>`
   }
 ];
 
