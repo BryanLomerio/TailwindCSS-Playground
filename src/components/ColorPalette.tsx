@@ -182,7 +182,7 @@ const ColorCard = ({
   );
 };
 
-// Color groups for the palette
+// Color groups 
 const colorGroups = {
   slate: [
     { name: "Slate 50", class: "bg-slate-50" },

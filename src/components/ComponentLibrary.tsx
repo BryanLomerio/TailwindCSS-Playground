@@ -1,19 +1,19 @@
 import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { Dialog } from "@headlessui/react";
+
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Copy } from "lucide-react";
 
 const ComponentLibrary = () => {
-  const { toast } = useToast();
   const [category, setCategory] = useState("buttons");
+  const [isDialogOpen, setDialogOpen] = useState(false);
+  const [copiedCode, setCopiedCode] = useState("");
 
   const copyComponent = (code: string) => {
     navigator.clipboard.writeText(code);
-    toast({
-      title: "Component copied",
-      description: "The component code has been copied to your clipboard",
-    });
+    setCopiedCode(code);
+    setDialogOpen(true);
   };
 
   return (
@@ -46,7 +46,6 @@ const ComponentLibrary = () => {
           </TabsTrigger>
         </TabsList>
 
-
         <TabsContent value="buttons" className="space-y-6">
           <h2 className="text-lg font-semibold mb-4">Button Components</h2>
           <div className="component-grid">
@@ -76,7 +75,6 @@ const ComponentLibrary = () => {
             ))}
           </div>
         </TabsContent>
-
 
         <TabsContent value="forms" className="space-y-6">
           <h2 className="text-lg font-semibold mb-4">Form Components</h2>
@@ -108,6 +106,40 @@ const ComponentLibrary = () => {
           </div>
         </TabsContent>
       </Tabs>
+      <Dialog
+        open={isDialogOpen}
+        onClose={() => setDialogOpen(false)}
+        className="fixed inset-0 z-10 overflow-y-auto"
+      >
+        <div
+          className="flex items-center justify-center min-h-screen"
+          onClick={() => setDialogOpen(false)}
+        >
+          <div className="fixed inset-0 bg-black opacity-30" aria-hidden="true" />
+
+          <div
+            className="relative bg-white dark:bg-gray-800 rounded max-w-sm mx-auto p-6 z-20"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Dialog.Title className="text-lg font-bold text-gray-900 dark:text-gray-100">
+              Copied to Clipboard
+            </Dialog.Title>
+            <Dialog.Description className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+              The component code has been copied to your clipboard.
+            </Dialog.Description>
+            <div className="mt-6 flex justify-end">
+              <Button
+                className="bg-black hover:bg-gray-500 dark:bg-gray-700 dark:hover:bg-gray-600"
+                onClick={() => setDialogOpen(false)}
+              >
+                Close
+              </Button>
+            </div>
+          </div>
+        </div>
+      </Dialog>
+
+
     </div>
   );
 };
@@ -149,6 +181,7 @@ const ComponentCard = ({ title, preview, code, onCopy }: ComponentCardProps) => 
     </div>
   );
 };
+
 
 // Button components
 const buttonComponents = [
