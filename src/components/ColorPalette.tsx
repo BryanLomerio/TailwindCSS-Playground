@@ -1,19 +1,16 @@
-
 import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { Dialog } from "@headlessui/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Copy } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const ColorPalette = () => {
-  const { toast } = useToast();
   const [colorCategory, setColorCategory] = useState("default");
+  const [isDialogOpen, setDialogOpen] = useState(false);
 
   const copyColor = (color: string) => {
     navigator.clipboard.writeText(color);
-    toast({
-      title: "Color copied",
-      description: `"${color}" has been copied to your clipboard`,
-    });
+    setDialogOpen(true);
   };
 
   return (
@@ -53,7 +50,6 @@ const ColorPalette = () => {
           </TabsTrigger>
         </TabsList>
 
-
         <TabsContent value="default" className="space-y-6">
           {Object.entries(colorGroups).map(([groupName, colors]) => (
             <div key={groupName} className="mb-8">
@@ -79,7 +75,7 @@ const ColorPalette = () => {
               <h3 className="text-base font-semibold mb-3 capitalize">{groupName}</h3>
               <div className="color-grid">
                 {colors.map((color) => {
-                  const textClass = color.class.replace('bg-', 'text-');
+                  const textClass = color.class.replace("bg-", "text-");
                   return (
                     <ColorCard
                       key={textClass}
@@ -121,7 +117,7 @@ const ColorPalette = () => {
               <h3 className="text-base font-semibold mb-3 capitalize">{groupName}</h3>
               <div className="color-grid">
                 {colors.map((color) => {
-                  const borderClass = color.class.replace('bg-', 'border-');
+                  const borderClass = color.class.replace("bg-", "border-");
                   return (
                     <ColorCard
                       key={borderClass}
@@ -137,6 +133,39 @@ const ColorPalette = () => {
           ))}
         </TabsContent>
       </Tabs>
+
+      <Dialog
+        open={isDialogOpen}
+        onClose={() => setDialogOpen(false)}
+        className="fixed inset-0 z-10 overflow-y-auto"
+      >
+        <div
+          className="flex items-center justify-center min-h-screen"
+          onClick={() => setDialogOpen(false)}
+        >
+          <div className="fixed inset-0 bg-black opacity-30" aria-hidden="true" />
+
+          <div
+            className="relative bg-white dark:bg-gray-800 rounded max-w-sm mx-auto p-6 z-20"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Dialog.Title className="text-lg font-bold text-gray-900 dark:text-gray-100">
+              Copied to Clipboard
+            </Dialog.Title>
+            <Dialog.Description className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+              The color has been copied to your clipboard.
+            </Dialog.Description>
+            <div className="mt-6 flex justify-end">
+              <Button
+                className="bg-black hover:bg-gray-500 dark:bg-gray-700 dark:hover:bg-gray-600"
+                onClick={() => setDialogOpen(false)}
+              >
+                Close
+              </Button>
+            </div>
+          </div>
+        </div>
+      </Dialog>
     </div>
   );
 };
@@ -156,19 +185,15 @@ const ColorCard = ({
   bgClass,
   borderClass,
   textColorClass,
-  onCopy
+  onCopy,
 }: ColorCardProps) => {
   return (
     <div
       className="border border-border rounded-lg overflow-hidden bg-card shadow-sm transition-all hover:shadow-md cursor-pointer"
       onClick={onCopy}
     >
-      {bgClass && (
-        <div className={`h-16 ${bgClass}`} />
-      )}
-      {borderClass && (
-        <div className={`h-16 border-4 ${borderClass}`} />
-      )}
+      {bgClass && <div className={`h-16 ${bgClass}`} />}
+      {borderClass && <div className={`h-16 border-4 ${borderClass}`} />}
       {textColorClass && (
         <div className="h-16 flex items-center justify-center">
           <span className={`text-2xl font-bold ${textColorClass}`}>Aa</span>
@@ -181,6 +206,7 @@ const ColorCard = ({
     </div>
   );
 };
+
 
 // Color groups 
 const colorGroups = {
