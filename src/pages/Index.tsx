@@ -11,7 +11,7 @@ const Index = () => {
   const [activeTab, setActiveTab] = useState("editor");
   const [htmlCode, setHtmlCode] = useState(`<!-- Solo Leveling Fan Page -->
 <!-- Try editing this code to see the changes in real-time -->
-
+<!-- You can use either React's className or HTML's class attributes in this playground. -->
 <div class="p-8 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
   <div class="md:flex">
     <div class="md:shrink-0">

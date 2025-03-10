@@ -161,9 +161,9 @@ const ComponentCard = ({ title, preview, code, onCopy }: ComponentCardProps) => 
   };
 
   return (
-    <div className="border border-border rounded-lg overflow-hidden bg-card shadow-sm transition-all hover:shadow-md">
+    <div className="gap-5 border border-border rounded-lg overflow-hidden bg-card shadow-sm transition-all hover:shadow-md">
       <div
-        className="p-1 border-b border-border bg-white"
+        className="p-4 border-b border-border bg-white"
         dangerouslySetInnerHTML={{ __html: preview }}
         onClick={handlePreviewClick}
       />

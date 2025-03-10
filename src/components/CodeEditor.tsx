@@ -13,16 +13,24 @@ interface CodeEditorProps {
   onChange: (value: string) => void;
 }
 
+// Function to convert React's className to HTML's class attribute
+const transformCode = (code: string) => {
+  return code.replace(/className=/g, 'class=');
+};
+
 const CodeEditor = ({ initialValue = defaultTemplate, onChange }: CodeEditorProps) => {
   const [code, setCode] = useState(initialValue);
   const { toast } = useToast();
 
   useEffect(() => {
-    onChange(code);
+    // Auto-run: update preview whenever the code changes.
+    onChange(transformCode(code));
   }, [code, onChange]);
 
   const handleRun = () => {
-    onChange(code);
+    // Manual run: update the preview on button click.
+    const transformedCode = transformCode(code);
+    onChange(transformedCode);
     toast({
       title: "Code updated",
       description: "Your changes have been applied to the preview",
@@ -34,8 +42,8 @@ const CodeEditor = ({ initialValue = defaultTemplate, onChange }: CodeEditorProp
   };
 
   return (
-    <div className="flex flex-col h-full bg-card rounded-md shadow-sm border border-border overflow-hidden animate-fade-in ">
-      <div className="flex justify-between items-center px-4 py-2 bg-muted border-b border-border ">
+    <div className="flex flex-col h-full bg-card rounded-md shadow-sm border border-border overflow-hidden animate-fade-in">
+      <div className="flex justify-between items-center px-4 py-2 bg-muted border-b border-border">
         <span className="text-sm font-medium">HTML + Tailwind CSS</span>
         <Button
           variant="secondary"
@@ -46,11 +54,10 @@ const CodeEditor = ({ initialValue = defaultTemplate, onChange }: CodeEditorProp
           <Play className="w-4 h-4" />
           Run
         </Button>
-
       </div>
       <Editor
         value={code}
-        onValueChange={(code) => setCode(code)}
+        onValueChange={(newCode) => setCode(newCode)}
         highlight={highlightCode}
         padding={16}
         className="flex-1 w-full p-4 bg-card text-card-foreground resize-none outline-none font-mono text-sm editor-scrollbar"
@@ -63,8 +70,9 @@ const CodeEditor = ({ initialValue = defaultTemplate, onChange }: CodeEditorProp
   );
 };
 
-const defaultTemplate = `<!-- Tailwind CSS Playground -->
+const defaultTemplate = `<!-- Solo Leveling Fan Page -->
 <!-- Try editing this code to see the changes in real-time -->
+<!-- You can use either React's className or HTML's class attributes in this playground. -->
 
 <div class="p-8 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
   <div class="md:flex">
@@ -81,5 +89,6 @@ const defaultTemplate = `<!-- Tailwind CSS Playground -->
     </div>
   </div>
 </div>`;
+
 
 export default CodeEditor;
