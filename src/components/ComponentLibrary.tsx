@@ -163,7 +163,7 @@ const ComponentCard = ({ title, preview, code, onCopy }: ComponentCardProps) => 
   return (
     <div className="border border-border rounded-lg overflow-hidden bg-card shadow-sm transition-all hover:shadow-md">
       <div
-        className="p-4 border-b border-border bg-white"
+        className="p-1 border-b border-border bg-white"
         dangerouslySetInnerHTML={{ __html: preview }}
         onClick={handlePreviewClick}
       />
@@ -1392,7 +1392,7 @@ const navigationComponents = [
   },
   {
     title: "Sticky Navbar with Shadow",
-    preview: `<nav class="sticky top-0 z-50 bg-white shadow p-4">
+    preview: `<nav class="sticky top-0 bg-white shadow p-4">
   <div class="container mx-auto flex items-center justify-between">
     <div class="text-xl font-bold text-gray-800">StickyBrand</div>
     <div class="space-x-4">
