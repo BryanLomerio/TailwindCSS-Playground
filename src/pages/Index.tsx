@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Shepherd from "shepherd.js";
 import "shepherd.js/dist/css/shepherd.css";
 import Header from "@/components/Header";
@@ -9,9 +9,7 @@ import ColorPalette from "@/components/ColorPalette";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("editor");
-  const [htmlCode, setHtmlCode] = useState(`<!-- Solo Leveling Fan Page -->
-<!-- Try editing this code to see the changes in real-time -->
-<!-- You can use either React's className or HTML's class attributes in this playground. -->
+  const [htmlCode, setHtmlCode] = useState(`
 <div class="p-8 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
   <div class="md:flex">
     <div class="md:shrink-0">
@@ -26,12 +24,22 @@ const Index = () => {
       </button>
     </div>
   </div>
-</div>`);
+</div>
+`);
   const [tourActive, setTourActive] = useState(false);
+  const [showTutorialPrompt, setShowTutorialPrompt] = useState(false);
+
+  useEffect(() => {
+    const tutorialSeen = localStorage.getItem("tutorialSeen");
+    if (!tutorialSeen) {
+      setShowTutorialPrompt(true);
+    }
+  }, []);
 
   const startTour = () => {
     setTourActive(true);
-
+    setShowTutorialPrompt(false);
+    localStorage.setItem("tutorialSeen", "true");
     const tour = new Shepherd.Tour({
       defaultStepOptions: {
         cancelIcon: { enabled: true },
@@ -39,8 +47,8 @@ const Index = () => {
         scrollTo: { behavior: "smooth", block: "center" }
       }
     });
-
     tour.on("show", function() {
+      document.querySelectorAll(".no-blur").forEach(el => el.classList.remove("no-blur"));
       const step = tour.getCurrentStep();
       const targetSelector = step.options.attachTo?.element;
       if (targetSelector) {
@@ -50,30 +58,20 @@ const Index = () => {
         }
       }
     });
-
-    tour.on("hide", function() {
-      const step = tour.getCurrentStep();
-      const targetSelector = step.options.attachTo?.element;
-      if (targetSelector) {
-        const target = document.querySelector(targetSelector);
-        if (target) {
-          target.classList.remove("no-blur");
-        }
-      }
+    tour.on("complete", () => {
+      setTourActive(false);
+      document.querySelectorAll(".no-blur").forEach(el => el.classList.remove("no-blur"));
     });
-
-    tour.on("complete", () => setTourActive(false));
-    tour.on("cancel", () => setTourActive(false));
-
-    // Step 1
+    tour.on("cancel", () => {
+      setTourActive(false);
+      document.querySelectorAll(".no-blur").forEach(el => el.classList.remove("no-blur"));
+    });
     tour.addStep({
       id: "step-code-editor",
       text: "This is the Code Editor where you can write your HTML code.",
       attachTo: { element: ".code-editor", on: "right" },
       buttons: [{ text: "Next", action: tour.next }]
     });
-
-    // Step 2
     tour.addStep({
       id: "step-preview",
       text: "This is the Preview section where you can see live changes.",
@@ -83,8 +81,6 @@ const Index = () => {
         { text: "Next", action: tour.next }
       ]
     });
-
-    // Step 3
     tour.addStep({
       id: "step-nav-editor",
       text: "Click here to switch to the Editor tab.",
@@ -94,8 +90,6 @@ const Index = () => {
         { text: "Next", action: tour.next }
       ]
     });
-
-    // Step 4
     tour.addStep({
       id: "step-nav-components",
       text: "This is the Components tab where you can view various UI components.",
@@ -105,8 +99,6 @@ const Index = () => {
         { text: "Next", action: tour.next }
       ]
     });
-
-    // Step 5
     tour.addStep({
       id: "step-nav-colors",
       text: "Here you can see and select different color palettes.",
@@ -116,8 +108,6 @@ const Index = () => {
         { text: "Next", action: tour.next }
       ]
     });
-
-    // Step 6
     tour.addStep({
       id: "step-copy-button",
       text: "This button copies the HTML code to your clipboard.",
@@ -127,8 +117,6 @@ const Index = () => {
         { text: "Next", action: tour.next }
       ]
     });
-
-    // Step 7
     tour.addStep({
       id: "step-save-button",
       text: "Click here to save your code.",
@@ -138,8 +126,6 @@ const Index = () => {
         { text: "Next", action: tour.next }
       ]
     });
-
-    // Step 8
     tour.addStep({
       id: "step-github-button",
       text: "This button links to the GitHub repository.",
@@ -149,13 +135,16 @@ const Index = () => {
         { text: "Done", action: tour.complete }
       ]
     });
-
     tour.start();
+  };
+
+  const skipTutorial = () => {
+    setShowTutorialPrompt(false);
+    localStorage.setItem("tutorialSeen", "true");
   };
 
   return (
     <>
-      {/* Styles for the overlay and to ensure highlighted elements are above it */}
       <style>{`
         .blur-overlay {
           position: fixed;
@@ -171,17 +160,78 @@ const Index = () => {
           position: relative;
           z-index: 101 !important;
         }
+        .shepherd-theme-arrows .shepherd-content {
+          background-color: #272727;
+          color: #fff;
+        }
+        .shepherd-theme-arrows .shepherd-content * {
+          color: #fff !important;
+        }
+        .shepherd-theme-arrows .shepherd-button {
+          background-color: #1e1e1e;
+          color: #fff;
+          border: none;
+        }
+        .shepherd-theme-arrows .shepherd-button:hover {
+          background-color: #333;
+        }
+        .shepherd-theme-arrows .shepherd-arrow {
+          color: #1e1e1e !important;
+        }
+        .shepherd-theme-arrows .shepherd-arrow svg,
+        .shepherd-theme-arrows .shepherd-arrow svg path,
+        .shepherd-theme-arrows .shepherd-arrow svg polygon {
+          fill: #1e1e1e !important;
+          stroke: #1e1e1e !important;
+        }
+        .tutorial-modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.5);
+          z-index: 200;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .tutorial-modal {
+          background: #272727;
+          color: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          text-align: center;
+          max-width: 300px;
+          width: 100%;
+        }
+        .tutorial-modal button {
+          background: #1e1e1e;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          margin: 10px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background 0.3s;
+        }
+        .tutorial-modal button:hover {
+          background: #333;
+        }
       `}</style>
-
       {tourActive && <div className="blur-overlay" />}
-
+      {showTutorialPrompt && (
+        <div className="tutorial-modal-overlay">
+          <div className="tutorial-modal">
+            <h2>Tutorial</h2>
+            <p>Would you like to view the tutorial?</p>
+            <button onClick={startTour}>Start Tutorial</button>
+            <button onClick={skipTutorial}>Skip Tutorial</button>
+          </div>
+        </div>
+      )}
       <div className="app-content relative flex flex-col min-h-screen bg-background">
-        <Header
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          htmlCode={htmlCode}
-        />
-
+        <Header activeTab={activeTab} setActiveTab={setActiveTab} htmlCode={htmlCode} />
         <main className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 p-4 overflow-hidden">
           {activeTab === "editor" ? (
             <>
@@ -202,15 +252,6 @@ const Index = () => {
             </div>
           )}
         </main>
-      </div>
-
-      <div className="fixed bottom-20 right-4 z-50">
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600 transition"
-          onClick={startTour}
-        >
-          Start Tour
-        </button>
       </div>
     </>
   );

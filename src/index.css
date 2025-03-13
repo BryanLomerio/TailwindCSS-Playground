@@ -127,5 +127,8 @@
     gap: 1rem;
   }
 }
-body.tour-active .no-blur { filter: none !important; }
-body.tour-active * { filter: blur(5px); }
+
+.shepherd-theme-arrows {
+  --shepherd-arrow-color: #1e1e1e !important;
+  --shepherd-arrow-shadow-color: #1e1e1e !important;
+}
