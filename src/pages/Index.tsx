@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Shepherd from "shepherd.js";
+import "shepherd.js/dist/css/shepherd.css";
 import Header from "@/components/Header";
 import CodeEditor from "@/components/CodeEditor";
 import Preview from "@/components/Preview";
@@ -28,6 +30,66 @@ const Index = () => {
   </div>
 </div>`);
 
+  // Function to initialize and start the Shepherd tour
+  const startTour = () => {
+    const tour = new Shepherd.Tour({
+      defaultStepOptions: {
+        cancelIcon: { enabled: true },
+        classes: "shepherd-theme-arrows",
+        scrollTo: { behavior: "smooth", block: "center" }
+      }
+    });
+
+    // Step 1: Code Editor
+    tour.addStep({
+      id: "step-code-editor",
+      text: "This is the Code Editor where you can write your HTML code.",
+      attachTo: { element: ".code-editor", on: "right" },
+      buttons: [
+        {
+          text: "Next",
+          action: tour.next
+        }
+      ]
+    });
+
+    // Step 2: Preview
+    tour.addStep({
+      id: "step-preview",
+      text: "This is the Preview section where you can see the live changes.",
+      attachTo: { element: ".preview", on: "left" },
+      buttons: [
+        {
+          text: "Back",
+          action: tour.back
+        },
+        {
+          text: "Next",
+          action: tour.next
+        }
+      ]
+    });
+
+    // Step 3: Header
+    tour.addStep({
+      id: "step-header",
+      text: "This is the Header area where you can switch tabs, copy code, save your work, and more.",
+      attachTo: { element: ".header", on: "bottom" },
+      buttons: [
+        {
+          text: "Back",
+          action: tour.back
+        },
+        {
+          text: "Done",
+          action: tour.complete
+        }
+      ]
+    });
+
+    tour.start();
+  };
+
   return (
     <div className="relative flex flex-col min-h-screen bg-background">
       <Header
@@ -36,14 +98,13 @@ const Index = () => {
         htmlCode={htmlCode}
       />
 
-
       <main className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 p-4 overflow-hidden">
         {activeTab === "editor" ? (
           <>
-            <div className="h-[calc(100vh-9rem)] overflow-hidden">
+            <div className="h-[calc(100vh-9rem)] overflow-hidden code-editor">
               <CodeEditor onChange={setHtmlCode} initialValue={htmlCode} />
             </div>
-            <div className="h-[calc(100vh-9rem)] overflow-hidden">
+            <div className="h-[calc(100vh-9rem)] overflow-hidden preview">
               <Preview htmlCode={htmlCode} />
             </div>
           </>
@@ -58,7 +119,16 @@ const Index = () => {
         )}
       </main>
       <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-        {/*  <Socials /> */}
+        {/* <Socials /> */}
+      </div>
+      {/* start */}
+      <div className="fixed bottom-20 right-4 z-50">
+        <button
+          className="px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600 transition"
+          onClick={startTour}
+        >
+          Start Tour
+        </button>
       </div>
     </div>
   );

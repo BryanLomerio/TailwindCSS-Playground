@@ -36,7 +36,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
   };
 
   return (
-    <header className="border-b border-border p-4 flex flex-col sm:flex-row items-center justify-between gap-4 animate-fade-in dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100">
+    <header className="header border-b border-border p-4 flex flex-col sm:flex-row items-center justify-between gap-4 animate-fade-in dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100">
       <div className="flex flex-col">
         <h1 className="text-xl font-semibold">Tailwind Playground</h1>
         <span className="text-sm text-gray-500">by AninoDev</span>
