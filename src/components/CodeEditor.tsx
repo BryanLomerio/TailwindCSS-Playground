@@ -1,79 +1,7 @@
-import { useState, useEffect } from "react";
-import Editor from "react-simple-code-editor";
-import Prism from "prismjs";
-import "prismjs/components/prism-markup";
-import "prismjs/themes/prism.css";
-
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
-import { Play } from "lucide-react";
-
-interface CodeEditorProps {
-  initialValue?: string;
-  onChange: (value: string) => void;
-}
-
-// Function to convert React's className to HTML's class attribute
-const transformCode = (code: string) => {
-  return code.replace(/className=/g, 'class=');
-};
-
-const CodeEditor = ({ initialValue = defaultTemplate, onChange }: CodeEditorProps) => {
-  const [code, setCode] = useState(initialValue);
-  const { toast } = useToast();
-
-  useEffect(() => {
-    // Auto-run: update preview whenever the code changes.
-    onChange(transformCode(code));
-  }, [code, onChange]);
-
-  const handleRun = () => {
-    // Manual run: update the preview on button click.
-    const transformedCode = transformCode(code);
-    onChange(transformedCode);
-    toast({
-      title: "Code updated",
-      description: "Your changes have been applied to the preview",
-    });
-  };
-
-  const highlightCode = (code: string) => {
-    return Prism.highlight(code, Prism.languages.markup, "markup");
-  };
-
-  return (
-    <div className="flex flex-col h-full bg-card rounded-md shadow-sm border border-border overflow-hidden animate-fade-in">
-      <div className="flex justify-between items-center px-4 py-2 bg-muted border-b border-border">
-        <span className="text-sm font-medium">HTML + Tailwind CSS</span>
-        <Button
-          variant="secondary"
-          size="sm"
-          className="flex items-center gap-1 bg-[#272727] text-primary-foreground hover:bg-[#717171] dark:bg-[#bb86fc] dark:text-white dark:hover:bg-[#7048a0]"
-          onClick={handleRun}
-        >
-          <Play className="w-4 h-4" />
-          Run
-        </Button>
-      </div>
-      <Editor
-        value={code}
-        onValueChange={(newCode) => setCode(newCode)}
-        highlight={highlightCode}
-        padding={16}
-        className="flex-1 w-full p-4 bg-card text-card-foreground resize-none outline-none font-mono text-sm editor-scrollbar"
-        style={{
-          fontFamily: '"Fira Code", "Fira Mono", monospace',
-          fontSize: 14,
-        }}
-      />
-    </div>
-  );
-};
+import React, { useState } from "react";
+import Editor, { OnMount } from "@monaco-editor/react";
 
 const defaultTemplate = `<!-- Solo Leveling Fan Page -->
-<!-- Try editing this code to see the changes in real-time -->
-<!-- You can use either React's className or HTML's class attributes in this playground. -->
-
 <div class="p-8 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
   <div class="md:flex">
     <div class="md:shrink-0">
@@ -82,7 +10,7 @@ const defaultTemplate = `<!-- Solo Leveling Fan Page -->
     <div class="p-8">
       <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Company retreats</div>
       <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Incredible accommodation for your team</a>
-      <p class="mt-2 text-slate-500">Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have the perfect location.</p>
+      <p class="mt-2 text-slate-500">Looking to take your team away on a retreat? We have the perfect location.</p>
       <button class="mt-4 px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 transition">
         Book now
       </button>
@@ -90,5 +18,124 @@ const defaultTemplate = `<!-- Solo Leveling Fan Page -->
   </div>
 </div>`;
 
+interface CodeEditorProps {
+  initialValue?: string;
+  onChange: (value: string) => void;
+}
+
+const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue = defaultTemplate, onChange }) => {
+  const [code, setCode] = useState(initialValue);
+
+  const handleEditorChange = (value?: string) => {
+    const updatedCode = value || "";
+    setCode(updatedCode);
+    onChange(updatedCode);
+  };
+
+  const handleEditorDidMount: OnMount = (editor, monaco) => {
+    monaco.languages.registerCompletionItemProvider("html", {
+      provideCompletionItems: (model, position) => {
+        const suggestions = [
+          // HTML tags
+          {
+            label: "div",
+            kind: monaco.languages.CompletionItemKind.Snippet,
+            insertText: `<div>$0</div>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            documentation: "HTML <div> element",
+          },
+          {
+            label: "button",
+            kind: monaco.languages.CompletionItemKind.Snippet,
+            insertText: `<button>$0</button>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            documentation: "HTML <button> element",
+          },
+          {
+            label: "p",
+            kind: monaco.languages.CompletionItemKind.Snippet,
+            insertText: `<p>$0</p>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            documentation: "HTML <p> element",
+          },
+          {
+            label: "a",
+            kind: monaco.languages.CompletionItemKind.Snippet,
+            insertText: `<a href="$0">$1</a>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            documentation: "HTML <a> element",
+          },
+          {
+            label: "img",
+            kind: monaco.languages.CompletionItemKind.Snippet,
+            insertText: `<img src="$0" alt="" />`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            documentation: "HTML <img> element",
+          },
+          {
+            label: "p-8",
+            kind: monaco.languages.CompletionItemKind.Text,
+            insertText: "p-8",
+            documentation: "Tailwind CSS: padding 8",
+          },
+          {
+            label: "max-w-md",
+            kind: monaco.languages.CompletionItemKind.Text,
+            insertText: "max-w-md",
+            documentation: "Tailwind CSS: max width medium",
+          },
+          {
+            label: "bg-white",
+            kind: monaco.languages.CompletionItemKind.Text,
+            insertText: "bg-white",
+            documentation: "Tailwind CSS: background white",
+          },
+          {
+            label: "text-indigo-500",
+            kind: monaco.languages.CompletionItemKind.Text,
+            insertText: "text-indigo-500",
+            documentation: "Tailwind CSS: text color indigo 500",
+          },
+
+        ];
+        return { suggestions };
+      },
+    });
+  };
+
+  const handleRun = () => {
+    console.log("Code updated:", code);
+  };
+
+  return (
+    <div className="flex flex-col w-full h-full border rounded shadow">
+      <div className="flex justify-between items-center p-2 bg-gray-200 border-b">
+        <span className="text-sm font-medium">HTML + Tailwind CSS (Monaco Editor)</span>
+        <button
+          onClick={handleRun}
+          className="px-2 py-1 bg-blue-500 text-white rounded focus:outline-none"
+        >
+          Run
+        </button>
+      </div>
+      {/* Wrap Editor in a flex item to fill available space */}
+      <div className="flex-1">
+        <Editor
+          width="100%"
+          height="100%"
+          defaultLanguage="html"
+          value={code}
+          theme="vs-dark"
+          onChange={handleEditorChange}
+          onMount={handleEditorDidMount}
+          options={{
+            fontSize: 14,
+            minimap: { enabled: false },
+          }}
+        />
+      </div>
+    </div>
+  );
+};
 
 export default CodeEditor;
