@@ -25,7 +25,6 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
 
   const saveCode = () => {
     setSaving(true);
-    // Simulate saving
     setTimeout(() => {
       setSaving(false);
       toast({
@@ -46,19 +45,19 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
         <TabsList className="w-full sm:w-auto grid grid-cols-3">
           <TabsTrigger
             value="editor"
-            className="data-[state=active]:bg-[#272727] dark:data-[state=active]:bg-[#bb86fc] hover:bg-[#3a3a3a] dark:hover:bg-[#cba4fa44] dark:hover:text-white data-[state=active]:text-white dark:data-[state=active]:text-white"
+            className="tab-editor data-[state=active]:bg-[#272727] dark:data-[state=active]:bg-[#bb86fc] hover:bg-[#3a3a3a] dark:hover:bg-[#cba4fa44] dark:hover:text-white data-[state=active]:text-white dark:data-[state=active]:text-white"
           >
             Editor
           </TabsTrigger>
           <TabsTrigger
             value="components"
-            className="data-[state=active]:bg-[#272727] dark:data-[state=active]:bg-[#bb86fc] hover:bg-[#3a3a3a] dark:hover:bg-[#cba4fa5b] data-[state=active]:text-primary-foreground dark:data-[state=active]:text-white"
+            className="tab-components data-[state=active]:bg-[#272727] dark:data-[state=active]:bg-[#bb86fc] hover:bg-[#3a3a3a] dark:hover:bg-[#cba4fa5b] data-[state=active]:text-primary-foreground dark:data-[state=active]:text-white"
           >
             Components
           </TabsTrigger>
           <TabsTrigger
             value="colors"
-            className="data-[state=active]:bg-[#272727] dark:data-[state=active]:bg-[#bb86fc] hover:bg-[#3a3a3a] dark:hover:bg-[#cba4fa4f] data-[state=active]:text-primary-foreground dark:data-[state=active]:text-white"
+            className="tab-colors data-[state=active]:bg-[#272727] dark:data-[state=active]:bg-[#bb86fc] hover:bg-[#3a3a3a] dark:hover:bg-[#cba4fa4f] data-[state=active]:text-primary-foreground dark:data-[state=active]:text-white"
           >
             Colors
           </TabsTrigger>
@@ -70,7 +69,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
         <Button
           variant="outline"
           size="sm"
-          className="flex items-center gap-1 dark:bg-[#bb86fc]"
+          className="btn-copy flex items-center gap-1 dark:bg-[#bb86fc]"
           onClick={copyToClipboard}
         >
           <Copy className="w-4 h-4" />
@@ -79,7 +78,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
         <Button
           variant="outline"
           size="sm"
-          className="flex items-center gap-1 dark:bg-[#bb86fc]"
+          className="btn-save flex items-center gap-1 dark:bg-[#bb86fc]"
           onClick={saveCode}
           disabled={saving}
         >
@@ -89,7 +88,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
         <Button
           variant="outline"
           size="sm"
-          className="flex items-center gap-1 dark:bg-[#bb86fc]"
+          className="btn-github flex items-center gap-1 dark:bg-[#bb86fc]"
           asChild
         >
           <a href="https://github.com/BryanLomerio" target="_blank" rel="noopener noreferrer">

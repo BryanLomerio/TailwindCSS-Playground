@@ -6,8 +6,6 @@ import CodeEditor from "@/components/CodeEditor";
 import Preview from "@/components/Preview";
 import ComponentLibrary from "@/components/ComponentLibrary";
 import ColorPalette from "@/components/ColorPalette";
-/* import Socials from "@/components/ui/Socials"; */
-/* import ThemeToggle from "@/components/ThemeToggle"; */
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("editor");
@@ -29,9 +27,11 @@ const Index = () => {
     </div>
   </div>
 </div>`);
+  const [tourActive, setTourActive] = useState(false);
 
-  // Function to initialize and start the Shepherd tour
   const startTour = () => {
+    setTourActive(true);
+
     const tour = new Shepherd.Tour({
       defaultStepOptions: {
         cancelIcon: { enabled: true },
@@ -40,50 +40,113 @@ const Index = () => {
       }
     });
 
-    // Step 1: Code Editor
+    tour.on("show", function() {
+      const step = tour.getCurrentStep();
+      const targetSelector = step.options.attachTo?.element;
+      if (targetSelector) {
+        const target = document.querySelector(targetSelector);
+        if (target) {
+          target.classList.add("no-blur");
+        }
+      }
+    });
+
+    tour.on("hide", function() {
+      const step = tour.getCurrentStep();
+      const targetSelector = step.options.attachTo?.element;
+      if (targetSelector) {
+        const target = document.querySelector(targetSelector);
+        if (target) {
+          target.classList.remove("no-blur");
+        }
+      }
+    });
+
+    tour.on("complete", () => setTourActive(false));
+    tour.on("cancel", () => setTourActive(false));
+
+    // Step 1
     tour.addStep({
       id: "step-code-editor",
       text: "This is the Code Editor where you can write your HTML code.",
       attachTo: { element: ".code-editor", on: "right" },
-      buttons: [
-        {
-          text: "Next",
-          action: tour.next
-        }
-      ]
+      buttons: [{ text: "Next", action: tour.next }]
     });
 
-    // Step 2: Preview
+    // Step 2
     tour.addStep({
       id: "step-preview",
-      text: "This is the Preview section where you can see the live changes.",
+      text: "This is the Preview section where you can see live changes.",
       attachTo: { element: ".preview", on: "left" },
       buttons: [
-        {
-          text: "Back",
-          action: tour.back
-        },
-        {
-          text: "Next",
-          action: tour.next
-        }
+        { text: "Back", action: tour.back },
+        { text: "Next", action: tour.next }
       ]
     });
 
-    // Step 3: Header
+    // Step 3
     tour.addStep({
-      id: "step-header",
-      text: "This is the Header area where you can switch tabs, copy code, save your work, and more.",
-      attachTo: { element: ".header", on: "bottom" },
+      id: "step-nav-editor",
+      text: "Click here to switch to the Editor tab.",
+      attachTo: { element: ".tab-editor", on: "bottom" },
       buttons: [
-        {
-          text: "Back",
-          action: tour.back
-        },
-        {
-          text: "Done",
-          action: tour.complete
-        }
+        { text: "Back", action: tour.back },
+        { text: "Next", action: tour.next }
+      ]
+    });
+
+    // Step 4
+    tour.addStep({
+      id: "step-nav-components",
+      text: "This is the Components tab where you can view various UI components.",
+      attachTo: { element: ".tab-components", on: "bottom" },
+      buttons: [
+        { text: "Back", action: tour.back },
+        { text: "Next", action: tour.next }
+      ]
+    });
+
+    // Step 5
+    tour.addStep({
+      id: "step-nav-colors",
+      text: "Here you can see and select different color palettes.",
+      attachTo: { element: ".tab-colors", on: "bottom" },
+      buttons: [
+        { text: "Back", action: tour.back },
+        { text: "Next", action: tour.next }
+      ]
+    });
+
+    // Step 6
+    tour.addStep({
+      id: "step-copy-button",
+      text: "This button copies the HTML code to your clipboard.",
+      attachTo: { element: ".btn-copy", on: "bottom" },
+      buttons: [
+        { text: "Back", action: tour.back },
+        { text: "Next", action: tour.next }
+      ]
+    });
+
+    // Step 7
+    tour.addStep({
+      id: "step-save-button",
+      text: "Click here to save your code.",
+      attachTo: { element: ".btn-save", on: "bottom" },
+      buttons: [
+        { text: "Back", action: tour.back },
+        { text: "Next", action: tour.next }
+      ]
+    });
+
+    // Step 8
+    tour.addStep({
+      id: "step-github-button",
+      text: "This button links to the GitHub repository.",
+      attachTo: { element: ".btn-github", on: "bottom" },
+      buttons: [
+        { text: "Back", action: tour.back },
+        { text: "Done", action: tour.complete }
       ]
     });
 
@@ -91,37 +154,56 @@ const Index = () => {
   };
 
   return (
-    <div className="relative flex flex-col min-h-screen bg-background">
-      <Header
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        htmlCode={htmlCode}
-      />
+    <>
+      {/* Styles for the overlay and to ensure highlighted elements are above it */}
+      <style>{`
+        .blur-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          backdrop-filter: blur(5px);
+          z-index: 100;
+          pointer-events: none;
+        }
+        .no-blur {
+          position: relative;
+          z-index: 101 !important;
+        }
+      `}</style>
 
-      <main className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 p-4 overflow-hidden">
-        {activeTab === "editor" ? (
-          <>
-            <div className="h-[calc(100vh-9rem)] overflow-hidden code-editor">
-              <CodeEditor onChange={setHtmlCode} initialValue={htmlCode} />
+      {tourActive && <div className="blur-overlay" />}
+
+      <div className="app-content relative flex flex-col min-h-screen bg-background">
+        <Header
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          htmlCode={htmlCode}
+        />
+
+        <main className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 p-4 overflow-hidden">
+          {activeTab === "editor" ? (
+            <>
+              <div className="h-[calc(100vh-9rem)] overflow-hidden code-editor">
+                <CodeEditor onChange={setHtmlCode} initialValue={htmlCode} />
+              </div>
+              <div className="h-[calc(100vh-9rem)] overflow-hidden preview">
+                <Preview htmlCode={htmlCode} />
+              </div>
+            </>
+          ) : activeTab === "components" ? (
+            <div className="col-span-1 md:col-span-2 h-[calc(100vh-9rem)] overflow-hidden">
+              <ComponentLibrary />
             </div>
-            <div className="h-[calc(100vh-9rem)] overflow-hidden preview">
-              <Preview htmlCode={htmlCode} />
+          ) : (
+            <div className="col-span-1 md:col-span-2 h-[calc(100vh-9rem)] overflow-hidden">
+              <ColorPalette />
             </div>
-          </>
-        ) : activeTab === "components" ? (
-          <div className="col-span-1 md:col-span-2 h-[calc(100vh-9rem)] overflow-hidden">
-            <ComponentLibrary />
-          </div>
-        ) : (
-          <div className="col-span-1 md:col-span-2 h-[calc(100vh-9rem)] overflow-hidden">
-            <ColorPalette />
-          </div>
-        )}
-      </main>
-      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-        {/* <Socials /> */}
+          )}
+        </main>
       </div>
-      {/* start */}
+
       <div className="fixed bottom-20 right-4 z-50">
         <button
           className="px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600 transition"
@@ -130,7 +212,7 @@ const Index = () => {
           Start Tour
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

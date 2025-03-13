@@ -127,3 +127,5 @@
     gap: 1rem;
   }
 }
+body.tour-active .no-blur { filter: none !important; }
+body.tour-active * { filter: blur(5px); }
