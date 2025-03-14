@@ -322,13 +322,13 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 
   return (
     <div className="flex flex-col w-full h-full border rounded shadow">
-      <div className="flex justify-between items-center p-2 bg-gray-200 border-b">
-        <span className="text-sm font-medium">
-          HTML + Tailwind CSS (Monaco Editor)
+      <div className="flex justify-between items-center p-2 bg-gray-200 border-b dark:bg-[#1e293b]">
+        <span className="text-sm font-medium dark:text-white">
+          HTML + Tailwind CSS
         </span>
         <button
           onClick={handleRun}
-          className="px-2 py-1 bg-blue-500 text-white rounded focus:outline-none"
+          className="px-2 py-1 bg-[#1e1e1e] dark:bg-[#bb86fc] text-white rounded focus:outline-none"
         >
           Run
         </button>
