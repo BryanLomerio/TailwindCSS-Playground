@@ -750,8 +750,37 @@ const cardComponents = [
       Hover over this card to see it come to life with a smooth animation.
     </p>
   </div>
+</div>
+` },
+{
+  title: "Event Card",
+  preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+<img class="w-full" src="https://graphicsfamily.com/wp-content/uploads/edd/2021/07/Music-Concert-Event-Ticket-Design-scaled.jpg" alt="Event">
+<div class="px-6 py-4">
+  <div class="font-bold text-xl mb-2 dark:text-black">Music Concert</div>
+  <p class="text-gray-700 text-base">
+    Join us for an unforgettable night of live music and entertainment.
+  </p>
+  <div class="mt-4 text-sm text-gray-600">
+    <span>Date: Aug 25, 2025</span><br>
+    <span>Location: Downtown Arena</span>
+  </div>
+</div>
+</div>`,
+  code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+<img class="w-full" src="https://graphicsfamily.com/wp-content/uploads/edd/2021/07/Music-Concert-Event-Ticket-Design-scaled.jpg" alt="Event">
+<div class="px-6 py-4">
+  <div class="font-bold text-xl mb-2 dark:text-black">Music Concert</div>
+  <p class="text-gray-700 text-base">
+    Join us for an unforgettable night of live music and entertainment.
+  </p>
+  <div class="mt-4 text-sm text-gray-600">
+    <span>Date: Aug 25, 2025</span><br>
+    <span>Location: Downtown Arena</span>
+  </div>
+</div>
 </div>`
-  }
+},
 ];
 
 // Form components
