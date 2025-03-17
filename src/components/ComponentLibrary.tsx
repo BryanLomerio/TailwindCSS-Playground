@@ -1863,7 +1863,65 @@ const navigationComponents = [
   </div>
 </nav>`
   },
-
+  {
+    title: "Mega Menu Navigation",
+    preview: `<nav class="bg-white shadow">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <a href="#" class="text-2xl font-bold text-gray-800">MegaBrand</a>
+        <div class="ml-10 space-x-4 hidden md:block">
+          <div class="relative group inline-block">
+            <button class="text-gray-600 hover:text-gray-800">Products</button>
+            <div class="absolute left-0 hidden group-hover:block bg-white shadow-lg p-4">
+              <div class="grid grid-cols-2 gap-4">
+                <a href="#" class="block text-gray-600 hover:text-gray-800">Product 1</a>
+                <a href="#" class="block text-gray-600 hover:text-gray-800">Product 2</a>
+                <a href="#" class="block text-gray-600 hover:text-gray-800">Product 3</a>
+                <a href="#" class="block text-gray-600 hover:text-gray-800">Product 4</a>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="text-gray-600 hover:text-gray-800">Services</a>
+          <a href="#" class="text-gray-600 hover:text-gray-800">About Us</a>
+          <a href="#" class="text-gray-600 hover:text-gray-800">Contact</a>
+        </div>
+      </div>
+      <div class="hidden md:block">
+        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Get Started</button>
+      </div>
+    </div>
+  </div>
+</nav>`,
+    code: `<nav class="bg-white shadow">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <a href="#" class="text-2xl font-bold text-gray-800">MegaBrand</a>
+        <div class="ml-10 space-x-4 hidden md:block">
+          <div class="relative group inline-block">
+            <button class="text-gray-600 hover:text-gray-800">Products</button>
+            <div class="absolute left-0 hidden group-hover:block bg-white shadow-lg p-4">
+              <div class="grid grid-cols-2 gap-4">
+                <a href="#" class="block text-gray-600 hover:text-gray-800">Product 1</a>
+                <a href="#" class="block text-gray-600 hover:text-gray-800">Product 2</a>
+                <a href="#" class="block text-gray-600 hover:text-gray-800">Product 3</a>
+                <a href="#" class="block text-gray-600 hover:text-gray-800">Product 4</a>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="text-gray-600 hover:text-gray-800">Services</a>
+          <a href="#" class="text-gray-600 hover:text-gray-800">About Us</a>
+          <a href="#" class="text-gray-600 hover:text-gray-800">Contact</a>
+        </div>
+      </div>
+      <div class="hidden md:block">
+        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Get Started</button>
+      </div>
+    </div>
+  </div>
+</nav>`
+  },
 ];
 
 
