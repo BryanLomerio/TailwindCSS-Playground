@@ -6,6 +6,10 @@ import CodeEditor from "@/components/CodeEditor";
 import Preview from "@/components/Preview";
 import ComponentLibrary from "@/components/ComponentLibrary";
 import ColorPalette from "@/components/ColorPalette";
+import TutorialOverlay from "@/components/TutorialOverlay";
+import { toast } from "sonner";
+
+import { motion, AnimatePresence } from "framer-motion";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("editor");
@@ -32,7 +36,17 @@ const Index = () => {
   useEffect(() => {
     const tutorialSeen = localStorage.getItem("tutorialSeen");
     if (!tutorialSeen) {
-      setShowTutorialPrompt(true);
+      const timer = setTimeout(() => {
+        setShowTutorialPrompt(true);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  useEffect(() => {
+    const savedCode = localStorage.getItem("savedCode");
+    if (savedCode) {
+      setHtmlCode(savedCode);
     }
   }, []);
 
@@ -40,217 +54,402 @@ const Index = () => {
     setTourActive(true);
     setShowTutorialPrompt(false);
     localStorage.setItem("tutorialSeen", "true");
+
     const tour = new Shepherd.Tour({
       defaultStepOptions: {
-        cancelIcon: { enabled: true },
-        classes: "shepherd-theme-arrows",
-        scrollTo: { behavior: "smooth", block: "center" }
-      }
-    });
-    tour.on("show", function() {
-      document.querySelectorAll(".no-blur").forEach(el => el.classList.remove("no-blur"));
-      const step = tour.getCurrentStep();
-      const targetSelector = step.options.attachTo?.element;
-      if (targetSelector) {
-        const target = document.querySelector(targetSelector);
-        if (target) {
-          target.classList.add("no-blur");
+        cancelIcon: {
+          enabled: true
+        },
+        classes: "shepherd-theme-custom",
+        scrollTo: {
+          behavior: "smooth",
+          block: "center"
+        },
+        when: {
+          show() {
+            const currentStep = tour.getCurrentStep();
+            const element = currentStep?.getElement();
+            if (element) {
+              element.style.zIndex = "10000";
+            }
+          }
         }
-      }
+      },
+      useModalOverlay: true
     });
+
     tour.on("complete", () => {
       setTourActive(false);
-      document.querySelectorAll(".no-blur").forEach(el => el.classList.remove("no-blur"));
+      document.querySelectorAll(".shepherd-active").forEach(el => el.classList.remove("shepherd-active"));
+      toast.success("Tutorial completed! You're all set.");
     });
+
     tour.on("cancel", () => {
       setTourActive(false);
-      document.querySelectorAll(".no-blur").forEach(el => el.classList.remove("no-blur"));
+      document.querySelectorAll(".shepherd-active").forEach(el => el.classList.remove("shepherd-active"));
     });
+
+    tour.addStep({
+      id: "welcome",
+      text: `
+        <div class="text-center mb-4">
+          <h3 class="text-lg font-bold mb-2">Welcome to Tailwind Editor</h3>
+          <p>This brief tour will help you get familiar with the interface.</p>
+        </div>
+      `,
+      buttons: [
+        {
+          text: "Let's Start",
+          action: tour.next,
+          classes: "shepherd-button-primary"
+        }
+      ]
+    });
+
     tour.addStep({
       id: "step-code-editor",
-      text: "This is the Code Editor where you can write your HTML code.",
-      attachTo: { element: ".code-editor", on: "right" },
-      buttons: [{ text: "Next", action: tour.next }]
+      text: `
+        <div>
+          <h3 class="text-lg font-bold mb-2">Code Editor</h3>
+          <p>This is where you write your HTML with Tailwind CSS classes. Changes appear live in the preview panel.</p>
+        </div>
+      `,
+      attachTo: {
+        element: ".code-editor",
+        on: "right"
+      },
+      buttons: [
+        {
+          text: "Next",
+          action: tour.next,
+          classes: "shepherd-button-primary"
+        }
+      ]
     });
+
     tour.addStep({
       id: "step-preview",
-      text: "This is the Preview section where you can see live changes.",
-      attachTo: { element: ".preview", on: "left" },
+      text: `
+        <div>
+          <h3 class="text-lg font-bold mb-2">Live Preview</h3>
+          <p>See your changes instantly in this preview panel. It updates as you type.</p>
+        </div>
+      `,
+      attachTo: {
+        element: ".preview",
+        on: "left"
+      },
       buttons: [
-        { text: "Back", action: tour.back },
-        { text: "Next", action: tour.next }
+        {
+          text: "Back",
+          action: tour.back,
+          classes: "shepherd-button-secondary"
+        },
+        {
+          text: "Next",
+          action: tour.next,
+          classes: "shepherd-button-primary"
+        }
       ]
     });
+
     tour.addStep({
       id: "step-nav-editor",
-      text: "Click here to switch to the Editor tab.",
-      attachTo: { element: ".tab-editor", on: "bottom" },
+      text: `
+        <div>
+          <h3 class="text-lg font-bold mb-2">Editor Tab</h3>
+          <p>Return to the code editor view anytime by clicking here.</p>
+        </div>
+      `,
+      attachTo: {
+        element: ".tab-editor",
+        on: "bottom"
+      },
       buttons: [
-        { text: "Back", action: tour.back },
-        { text: "Next", action: tour.next }
+        {
+          text: "Back",
+          action: tour.back,
+          classes: "shepherd-button-secondary"
+        },
+        {
+          text: "Next",
+          action: tour.next,
+          classes: "shepherd-button-primary"
+        }
       ]
     });
+
     tour.addStep({
       id: "step-nav-components",
-      text: "This is the Components tab where you can view various UI components.",
-      attachTo: { element: ".tab-components", on: "bottom" },
+      text: `
+        <div>
+          <h3 class="text-lg font-bold mb-2">Components Tab</h3>
+          <p>Browse and copy pre-built components to use in your designs.</p>
+        </div>
+      `,
+      attachTo: {
+        element: ".tab-components",
+        on: "bottom"
+      },
       buttons: [
-        { text: "Back", action: tour.back },
-        { text: "Next", action: tour.next }
+        {
+          text: "Back",
+          action: tour.back,
+          classes: "shepherd-button-secondary"
+        },
+        {
+          text: "Next",
+          action: tour.next,
+          classes: "shepherd-button-primary"
+        }
       ]
     });
+
     tour.addStep({
       id: "step-nav-colors",
-      text: "Here you can see and select different color palettes.",
-      attachTo: { element: ".tab-colors", on: "bottom" },
+      text: `
+        <div>
+          <h3 class="text-lg font-bold mb-2">Colors Tab</h3>
+          <p>Explore color palettes and copy color values to your clipboard.</p>
+        </div>
+      `,
+      attachTo: {
+        element: ".tab-colors",
+        on: "bottom"
+      },
       buttons: [
-        { text: "Back", action: tour.back },
-        { text: "Next", action: tour.next }
+        {
+          text: "Back",
+          action: tour.back,
+          classes: "shepherd-button-secondary"
+        },
+        {
+          text: "Next",
+          action: tour.next,
+          classes: "shepherd-button-primary"
+        }
       ]
     });
+
     tour.addStep({
       id: "step-copy-button",
-      text: "This button copies the HTML code to your clipboard.",
-      attachTo: { element: ".btn-copy", on: "bottom" },
+      text: `
+        <div>
+          <h3 class="text-lg font-bold mb-2">Copy Code</h3>
+          <p>Quickly copy your HTML code to the clipboard.</p>
+        </div>
+      `,
+      attachTo: {
+        element: ".btn-copy",
+        on: "bottom"
+      },
       buttons: [
-        { text: "Back", action: tour.back },
-        { text: "Next", action: tour.next }
+        {
+          text: "Back",
+          action: tour.back,
+          classes: "shepherd-button-secondary"
+        },
+        {
+          text: "Next",
+          action: tour.next,
+          classes: "shepherd-button-primary"
+        }
       ]
     });
+
     tour.addStep({
       id: "step-save-button",
-      text: "Click here to save your code.",
-      attachTo: { element: ".btn-save", on: "bottom" },
+      text: `
+        <div>
+          <h3 class="text-lg font-bold mb-2">Save Code</h3>
+          <p>Save your code locally to continue later.</p>
+        </div>
+      `,
+      attachTo: {
+        element: ".btn-save",
+        on: "bottom"
+      },
       buttons: [
-        { text: "Back", action: tour.back },
-        { text: "Next", action: tour.next }
+        {
+          text: "Back",
+          action: tour.back,
+          classes: "shepherd-button-secondary"
+        },
+        {
+          text: "Next",
+          action: tour.next,
+          classes: "shepherd-button-primary"
+        }
       ]
     });
+
     tour.addStep({
-      id: "step-github-button",
-      text: "This button links to the GitHub repository.",
-      attachTo: { element: ".btn-github", on: "bottom" },
+      id: "step-help-button",
+      text: `
+        <div>
+          <h3 class="text-lg font-bold mb-2">Tutorial Button</h3>
+          <p>Start this tutorial again anytime by clicking here.</p>
+        </div>
+      `,
+      attachTo: {
+        element: ".btn-help",
+        on: "bottom"
+      },
       buttons: [
-        { text: "Back", action: tour.back },
-        { text: "Done", action: tour.complete }
+        {
+          text: "Back",
+          action: tour.back,
+          classes: "shepherd-button-secondary"
+        },
+        {
+          text: "Finish Tour",
+          action: tour.complete,
+          classes: "shepherd-button-primary"
+        }
       ]
     });
+
     tour.start();
   };
 
   const skipTutorial = () => {
     setShowTutorialPrompt(false);
     localStorage.setItem("tutorialSeen", "true");
+    toast.info("You can start the tutorial anytime by clicking the Tutorial button.");
   };
 
   return (
     <>
       <style>{`
-        .blur-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          backdrop-filter: blur(5px);
-          z-index: 100;
-          pointer-events: none;
+        .shepherd-theme-custom {
+          --shepherd-bg: #ffffff;
+          --shepherd-text: #333333;
+          --shepherd-header-bg: #f8f9fa;
+          --shepherd-header-text: #333333;
+          --shepherd-button-primary-bg: #3b82f6;
+          --shepherd-button-primary-text: white;
+          --shepherd-button-secondary-bg: #f1f5f9;
+          --shepherd-button-secondary-text: #334155;
         }
-        .no-blur {
-          position: relative;
-          z-index: 101 !important;
+
+        .shepherd-theme-custom .shepherd-content {
+          border-radius: 0.75rem;
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+          padding: 0;
+          width: 350px;
         }
-        .shepherd-theme-arrows .shepherd-content {
-          background-color: #272727;
-          color: #fff;
+
+        .shepherd-theme-custom .shepherd-text {
+          padding: 1.5rem;
+          line-height: 1.6;
         }
-        .shepherd-theme-arrows .shepherd-content * {
-          color: #fff !important;
-        }
-        .shepherd-theme-arrows .shepherd-button {
-          background-color: #1e1e1e;
-          color: #fff;
-          border: none;
-        }
-        .shepherd-theme-arrows .shepherd-button:hover {
-          background-color: #333;
-        }
-        .shepherd-theme-arrows .shepherd-arrow {
-          color: #1e1e1e !important;
-        }
-        .shepherd-theme-arrows .shepherd-arrow svg,
-        .shepherd-theme-arrows .shepherd-arrow svg path,
-        .shepherd-theme-arrows .shepherd-arrow svg polygon {
-          fill: #1e1e1e !important;
-          stroke: #1e1e1e !important;
-        }
-        .tutorial-modal-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(0,0,0,0.5);
-          z-index: 200;
+
+        .shepherd-theme-custom .shepherd-footer {
+          border-top: 1px solid #e2e8f0;
+          padding: 0.75rem;
           display: flex;
-          align-items: center;
-          justify-content: center;
+          justify-content: flex-end;
         }
-        .tutorial-modal {
-          background: #272727;
-          color: #fff;
-          padding: 20px;
-          border-radius: 8px;
-          text-align: center;
-          max-width: 300px;
-          width: 100%;
+
+        .shepherd-theme-custom .shepherd-button {
+          border-radius: 0.375rem;
+          font-weight: 500;
+          font-size: 0.875rem;
+          padding: 0.5rem 1rem;
+          transition: all 0.2s;
+          margin-left: 0.5rem;
         }
-        .tutorial-modal button {
-          background: #1e1e1e;
-          color: #fff;
-          border: none;
-          padding: 10px 20px;
-          margin: 10px;
-          border-radius: 4px;
-          cursor: pointer;
-          transition: background 0.3s;
+
+        .shepherd-theme-custom .shepherd-button-primary {
+          background-color: var(--shepherd-button-primary-bg);
+          color: var(--shepherd-button-primary-text);
         }
-        .tutorial-modal button:hover {
-          background: #333;
+
+        .shepherd-theme-custom .shepherd-button-primary:hover {
+          background-color: #2563eb;
+        }
+
+        .shepherd-theme-custom .shepherd-button-secondary {
+          background-color: var(--shepherd-button-secondary-bg);
+          color: var(--shepherd-button-secondary-text);
+        }
+
+        .shepherd-theme-custom .shepherd-button-secondary:hover {
+          background-color: #e2e8f0;
+        }
+
+        .shepherd-theme-custom .shepherd-cancel-icon {
+          color: #94a3b8;
+          transition: color 0.2s;
+        }
+
+        .shepherd-theme-custom .shepherd-cancel-icon:hover {
+          color: #475569;
+        }
+
+        .shepherd-modal-overlay-container {
+          backdrop-filter: blur(4px);
+          background-color: rgba(0, 0, 0, 0.4);
+          transition: all 0.3s ease-out;
         }
       `}</style>
-      {tourActive && <div className="blur-overlay" />}
-      {showTutorialPrompt && (
-        <div className="tutorial-modal-overlay">
-          <div className="tutorial-modal">
-            <h2>Tutorial</h2>
-            <p>Would you like to view the tutorial?</p>
-            <button onClick={startTour}>Start Tutorial</button>
-            <button onClick={skipTutorial}>Skip Tutorial</button>
-          </div>
-        </div>
-      )}
+
+      <TutorialOverlay
+        showTutorialPrompt={showTutorialPrompt}
+        startTour={startTour}
+        skipTutorial={skipTutorial}
+      />
+
       <div className="app-content relative flex flex-col min-h-screen bg-background">
-        <Header activeTab={activeTab} setActiveTab={setActiveTab} htmlCode={htmlCode} />
-        <main className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 p-4 overflow-hidden">
-          {activeTab === "editor" ? (
-            <>
-              <div className="h-[calc(100vh-9rem)] overflow-hidden code-editor">
-                <CodeEditor onChange={setHtmlCode} initialValue={htmlCode} />
-              </div>
-              <div className="h-[calc(100vh-9rem)] overflow-hidden preview">
-                <Preview htmlCode={htmlCode} />
-              </div>
-            </>
-          ) : activeTab === "components" ? (
-            <div className="col-span-1 md:col-span-2 h-[calc(100vh-9rem)] overflow-hidden">
-              <ComponentLibrary />
-            </div>
-          ) : (
-            <div className="col-span-1 md:col-span-2 h-[calc(100vh-9rem)] overflow-hidden">
-              <ColorPalette />
-            </div>
-          )}
+        <Header
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          htmlCode={htmlCode}
+          startTour={startTour}
+        />
+
+        <main className="flex-1 p-4 overflow-hidden">
+          <AnimatePresence mode="wait">
+            {activeTab === "editor" ? (
+              <motion.div
+                key="editor"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 h-[calc(100vh-9rem)]"
+              >
+                <div className="overflow-hidden shadow-lg rounded-lg code-editor">
+                  <CodeEditor onChange={setHtmlCode} initialValue={htmlCode} />
+                </div>
+                <div className="overflow-hidden shadow-lg rounded-lg preview">
+                  <Preview htmlCode={htmlCode} />
+                </div>
+              </motion.div>
+            ) : activeTab === "components" ? (
+              <motion.div
+                key="components"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="col-span-1 md:col-span-2 h-[calc(100vh-9rem)] overflow-auto"
+              >
+                <ComponentLibrary />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="colors"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="col-span-1 md:col-span-2 h-[calc(100vh-9rem)] overflow-auto"
+              >
+                <ColorPalette />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </main>
       </div>
     </>
