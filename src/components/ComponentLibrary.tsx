@@ -892,6 +892,29 @@ const cardComponents = [
 </div>
 </div>`
 },
+{
+  title: "Recipe Card",
+  preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+<img class="w-full" src="https://media.istockphoto.com/id/155433174/photo/bolognese-pens.jpg?s=612x612&w=0&k=20&c=A_TBqOAzcOkKbeVv8qSDs0bukfAedhkA458JEFolo_M=" alt="Recipe">
+<div class="px-6 py-4">
+  <div class="font-bold text-xl mb-2 dark:text-black">Delicious Pasta</div>
+  <p class="text-gray-700 text-base">
+    A delightful blend of fresh ingredients, herbs, and spices to create a mouth-watering pasta dish.
+  </p>
+  <button class="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">View Recipe</button>
+</div>
+</div>`,
+  code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+<img class="w-full" src="https://media.istockphoto.com/id/155433174/photo/bolognese-pens.jpg?s=612x612&w=0&k=20&c=A_TBqOAzcOkKbeVv8qSDs0bukfAedhkA458JEFolo_M=" alt="Recipe">
+<div class="px-6 py-4">
+  <div class="font-bold text-xl mb-2 dark:text-black">Delicious Pasta</div>
+  <p class="text-gray-700 text-base">
+    A delightful blend of fresh ingredients, herbs, and spices to create a mouth-watering pasta dish.
+  </p>
+  <button class="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">View Recipe</button>
+</div>
+</div>`
+}
 ];
 
 // Form components
