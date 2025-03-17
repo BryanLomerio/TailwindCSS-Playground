@@ -75,7 +75,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
       </Tabs>
 
       <div className="flex items-center gap-2">
-        <ThemeToggle />
+      <ThemeToggle className="theme-toggle" />
         <Button
           variant="outline"
           size="sm"
