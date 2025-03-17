@@ -804,6 +804,65 @@ const cardComponents = [
 </div>
 </div>`
 },
+{
+  title: "Review Card",
+  preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
+<p class="text-gray-700 text-base italic">
+  "An exceptional experience with outstanding customer service."
+</p>
+<div class="mt-4 flex items-center">
+  <img class="w-10 h-10 rounded-full" src="https://preview.redd.it/bgyo-gelos-2x2-picture-goes-viral-in-the-interwebs-v0-4utcv426n1la1.jpg?auto=webp&s=14d561008837fcf49292d82a15ef15d2e7b6ecf6" alt="Reviewer">
+  <div class="ml-4">
+    <div class="font-bold text-sm dark:text-black">Mark Tan</div>
+    <div class="flex text-yellow-400">
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+        <path d="M10 15l-5.878 3.09 1.122-6.545L.488 7.91l6.561-.954L10 1l2.951 5.956 6.561.954-4.756 4.635 1.122 6.545z"/>
+      </svg>
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+        <path d="M10 15l-5.878 3.09 1.122-6.545L.488 7.91l6.561-.954L10 1l2.951 5.956 6.561.954-4.756 4.635 1.122 6.545z"/>
+      </svg>
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+        <path d="M10 15l-5.878 3.09 1.122-6.545L.488 7.91l6.561-.954L10 1l2.951 5.956 6.561.954-4.756 4.635 1.122 6.545z"/>
+      </svg>
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+        <path d="M10 15l-5.878 3.09 1.122-6.545L.488 7.91l6.561-.954L10 1l2.951 5.956 6.561.954-4.756 4.635 1.122 6.545z"/>
+      </svg>
+      <svg class="w-4 h-4 fill-current text-gray-300" viewBox="0 0 20 20">
+        <path d="M10 15l-5.878 3.09 1.122-6.545L.488 7.91l6.561-.954L10 1l2.951 5.956 6.561.954-4.756 4.635 1.122 6.545z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+</div>`,
+  code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
+<p class="text-gray-700 text-base italic">
+  "An exceptional experience with outstanding customer service."
+</p>
+<div class="mt-4 flex items-center">
+  <img class="w-10 h-10 rounded-full" src="https://preview.redd.it/bgyo-gelos-2x2-picture-goes-viral-in-the-interwebs-v0-4utcv426n1la1.jpg?auto=webp&s=14d561008837fcf49292d82a15ef15d2e7b6ecf6" alt="Reviewer">
+  <div class="ml-4">
+    <div class="font-bold text-sm dark:text-black">Mark tan</div>
+    <div class="flex text-yellow-400">
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+        <path d="M10 15l-5.878 3.09 1.122-6.545L.488 7.91l6.561-.954L10 1l2.951 5.956 6.561.954-4.756 4.635 1.122 6.545z"/>
+      </svg>
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+        <path d="M10 15l-5.878 3.09 1.122-6.545L.488 7.91l6.561-.954L10 1l2.951 5.956 6.561.954-4.756 4.635 1.122 6.545z"/>
+      </svg>
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+        <path d="M10 15l-5.878 3.09 1.122-6.545L.488 7.91l6.561-.954L10 1l2.951 5.956 6.561.954-4.756 4.635 1.122 6.545z"/>
+      </svg>
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+        <path d="M10 15l-5.878 3.09 1.122-6.545L.488 7.91l6.561-.954L10 1l2.951 5.956 6.561.954-4.756 4.635 1.122 6.545z"/>
+      </svg>
+      <svg class="w-4 h-4 fill-current text-gray-300" viewBox="0 0 20 20">
+        <path d="M10 15l-5.878 3.09 1.122-6.545L.488 7.91l6.561-.954L10 1l2.951 5.956 6.561.954-4.756 4.635 1.122 6.545z"/>
+      </svg>
+    </div>
+  </div>
+</div>
+</div>`
+},
 ];
 
 // Form components
