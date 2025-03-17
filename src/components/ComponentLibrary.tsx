@@ -1725,7 +1725,7 @@ const navigationComponents = [
     preview: `<nav class="bg-white shadow p-4">
   <div class="container mx-auto flex items-center justify-between">
     <div class="flex items-center">
-      <img src="https://via.placeholder.com/40" alt="Logo" class="h-10 w-10 mr-2">
+      <img src="https://i.ytimg.com/vi/B7pR3fG-SMo/maxresdefault.jpg" alt="Logo" class="h-10 w-10 mr-2">
       <span class="font-bold text-xl text-gray-800">MyBrand</span>
     </div>
     <div class="hidden md:flex space-x-6">
@@ -1740,7 +1740,7 @@ const navigationComponents = [
     code: `<nav class="bg-white shadow p-4">
   <div class="container mx-auto flex items-center justify-between">
     <div class="flex items-center">
-      <img src="https://via.placeholder.com/40" alt="Logo" class="h-10 w-10 mr-2">
+      <img src="https://i.ytimg.com/vi/B7pR3fG-SMo/maxresdefault.jpg" alt="Logo" class="h-10 w-10 mr-2">
       <span class="font-bold text-xl text-gray-800">MyBrand</span>
     </div>
     <div class="hidden md:flex space-x-6">
@@ -1812,7 +1812,31 @@ const navigationComponents = [
     </div>
   </div>
 </nav>`
-  }
+  },
+  {
+    title: "Minimalist Navbar",
+    preview: `<nav class="p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="text-xl font-light">Minimal</div>
+    <div class="space-x-4">
+      <a href="#" class="text-gray-700 hover:text-gray-900">Home</a>
+      <a href="#" class="text-gray-700 hover:text-gray-900">Work</a>
+      <a href="#" class="text-gray-700 hover:text-gray-900">Contact</a>
+    </div>
+  </div>
+</nav>`,
+    code: `<nav class="p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="text-xl font-light">Minimal</div>
+    <div class="space-x-4">
+      <a href="#" class="text-gray-700 hover:text-gray-900">Home</a>
+      <a href="#" class="text-gray-700 hover:text-gray-900">Work</a>
+      <a href="#" class="text-gray-700 hover:text-gray-900">Contact</a>
+    </div>
+  </div>
+</nav>`
+  },
+
 ];
 
 
