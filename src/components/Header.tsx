@@ -96,16 +96,16 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
           <span className="hidden sm:inline">{saving ? "Saving..." : "Save"}</span>
         </Button>
         <Button
-          variant="outline"
-          size="sm"
-          className="btn-github flex items-center gap-1 dark:bg-[#bb86fc]"
-          asChild
-        >
-          <a href="https://github.com/BryanLomerio" target="_blank" rel="noopener noreferrer">
-            <Github className="w-4 h-4" />
-            <span className="hidden sm:inline">GitHub</span>
-          </a>
-        </Button>
+        variant="outline"
+        size="sm"
+        className="btn-github flex items-center gap-1 dark:bg-[#bb86fc]"
+        asChild
+      >
+        <a href="https://github.com/BryanLomerio" target="_blank" rel="noopener noreferrer">
+          <Github className="w-4 h-4" />
+          <span className="hidden sm:inline">GitHub</span>
+        </a>
+      </Button>
 
       </div>
     </header>
