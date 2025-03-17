@@ -128,14 +128,30 @@ const Tutorial = () => {
 
   return (
     <>
-      {tourActive && <div className="blur-overlay" />}
+      {tourActive && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40" />
+      )}
       {showTutorialPrompt && (
-        <div className="tutorial-modal-overlay">
-          <div className="tutorial-modal">
-            <h2>Tutorial</h2>
-            <p>Would you like to view the tutorial?</p>
-            <button onClick={startTour}>Start Tutorial</button>
-            <button onClick={skipTutorial}>Skip Tutorial</button>
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-xl p-8 max-w-md mx-4 animate-fadeIn">
+            <h2 className="text-2xl font-bold mb-4 text-gray-800">Tutorial</h2>
+            <p className="mb-6 text-gray-600">
+              Would you like to view the tutorial?
+            </p>
+            <div className="flex justify-end space-x-4">
+              <button
+                onClick={startTour}
+                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-200"
+              >
+                Start Tutorial
+              </button>
+              <button
+                onClick={skipTutorial}
+                className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition duration-200"
+              >
+                Skip Tutorial
+              </button>
+            </div>
           </div>
         </div>
       )}
