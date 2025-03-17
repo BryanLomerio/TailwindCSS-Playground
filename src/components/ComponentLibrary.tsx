@@ -1034,6 +1034,29 @@ const cardComponents = [
 </div>
 </div>`
 },
+{
+  title: "Discount Card",
+  preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white relative">
+<img class="w-full" src="https://static.vecteezy.com/system/resources/previews/005/725/259/non_2x/special-offer-sale-red-tag-isolated-illustration-discount-offer-price-label-symbol-for-advertising-campaign-in-retail-sale-promo-marketing-50-percent-off-discount-sticker-vector.jpg" alt="Discount">
+<div class="absolute top-0 right-0 m-4 bg-red-500 text-white px-2 py-1 rounded">-50%</div>
+<div class="px-6 py-4">
+  <div class="font-bold text-xl mb-2 dark:text-black">Special Offer</div>
+  <p class="text-gray-700 text-base">
+    Enjoy a massive discount on our best-selling product. Limited time offer!
+  </p>
+</div>
+</div>`,
+  code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white relative">
+<img class="w-full" src="https://static.vecteezy.com/system/resources/previews/005/725/259/non_2x/special-offer-sale-red-tag-isolated-illustration-discount-offer-price-label-symbol-for-advertising-campaign-in-retail-sale-promo-marketing-50-percent-off-discount-sticker-vector.jpg" alt="Discount">
+<div class="absolute top-0 right-0 m-4 bg-red-500 text-white px-2 py-1 rounded">-50%</div>
+<div class="px-6 py-4">
+  <div class="font-bold text-xl mb-2 dark:text-black">Special Offer</div>
+  <p class="text-gray-700 text-base">
+    Enjoy a massive discount on our best-selling product. Limited time offer!
+  </p>
+</div>
+</div>`
+},
 ];
 
 // Form components
