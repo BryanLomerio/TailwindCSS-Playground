@@ -1005,6 +1005,35 @@ const cardComponents = [
 </div>
 </div>`
 },
+{
+  title: "Portfolio Card",
+  preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+<img class="w-full" src="https://static.resumegiants.com/wp-content/uploads/sites/25/2022/06/09105622/Professional-portfolio-736x414.webp" alt="Project">
+<div class="px-6 py-4">
+  <div class="font-bold text-xl mb-2 dark:text-black">Project Showcase</div>
+  <p class="text-gray-700 text-base">
+    A glimpse into our latest creative project, combining innovation and design.
+  </p>
+  <div class="mt-4 flex space-x-2">
+    <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">View Project</button>
+    <button class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400">Source Code</button>
+  </div>
+</div>
+</div>`,
+  code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+<img class="w-full" src="https://static.resumegiants.com/wp-content/uploads/sites/25/2022/06/09105622/Professional-portfolio-736x414.webp" alt="Project">
+<div class="px-6 py-4">
+  <div class="font-bold text-xl mb-2 dark:text-black">Project Showcase</div>
+  <p class="text-gray-700 text-base">
+    A glimpse into our latest creative project, combining innovation and design.
+  </p>
+  <div class="mt-4 flex space-x-2">
+    <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">View Project</button>
+    <button class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400">Source Code</button>
+  </div>
+</div>
+</div>`
+},
 ];
 
 // Form components
