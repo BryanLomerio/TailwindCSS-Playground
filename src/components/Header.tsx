@@ -106,6 +106,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
             <span className="hidden sm:inline">GitHub</span>
           </a>
         </Button>
+
       </div>
     </header>
   );
