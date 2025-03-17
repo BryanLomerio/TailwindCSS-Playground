@@ -914,7 +914,42 @@ const cardComponents = [
   <button class="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">View Recipe</button>
 </div>
 </div>`
-}
+},
+{
+  title: "Video Card",
+  preview: `<div class="relative max-w-sm rounded overflow-hidden shadow-lg bg-white">
+<img class="w-full" src="https://source.unsplash.com/random/400x300?video" alt="Video Thumbnail">
+<div class="absolute inset-0 flex items-center justify-center">
+  <button class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M8 5v14l11-7z"></path>
+    </svg>
+  </button>
+</div>
+<div class="px-6 py-4">
+  <div class="font-bold text-xl mb-2 dark:text-black">Watch Our Story</div>
+  <p class="text-gray-700 text-base">
+    Click play to watch our latest video and discover our journey.
+  </p>
+</div>
+</div>`,
+  code: `<div class="relative max-w-sm rounded overflow-hidden shadow-lg bg-white">
+<img class="w-full" src="https://source.unsplash.com/random/400x300?video" alt="Video Thumbnail">
+<div class="absolute inset-0 flex items-center justify-center">
+  <button class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M8 5v14l11-7z"></path>
+    </svg>
+  </button>
+</div>
+<div class="px-6 py-4">
+  <div class="font-bold text-xl mb-2 dark:text-black">Watch Our Story</div>
+  <p class="text-gray-700 text-base">
+    Click play to watch our latest video and discover our journey.
+  </p>
+</div>
+</div>`
+},
 ];
 
 // Form components
