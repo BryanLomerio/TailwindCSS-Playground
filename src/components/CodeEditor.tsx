@@ -35,7 +35,6 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
     onChange(updatedCode);
   };
 
-  // Register autocomplete suggestions for HTML tags and Tailwind CSS classes.
   const handleEditorDidMount: OnMount = (editor, monaco) => {
     monaco.languages.registerCompletionItemProvider("html", {
       provideCompletionItems: (model, position) => {
@@ -324,7 +323,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
     <div className="flex flex-col w-full h-full border rounded shadow">
       <div className="flex justify-between items-center p-2 bg-gray-200 border-b dark:bg-[#1e293b]">
         <span className="text-sm font-medium dark:text-white">
-          HTML + Tailwind CSS
+          Tailwind CSS
         </span>
         <button
           onClick={handleRun}
