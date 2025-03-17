@@ -1836,6 +1836,33 @@ const navigationComponents = [
   </div>
 </nav>`
   },
+  {
+    title: "Dark Mode Navbar",
+    preview: `<nav class="bg-gray-900 p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="text-2xl font-bold text-white">DarkBrand</div>
+    <div class="space-x-4">
+      <a href="#" class="text-gray-300 hover:text-white">Home</a>
+      <a href="#" class="text-gray-300 hover:text-white">Features</a>
+      <a href="#" class="text-gray-300 hover:text-white">Pricing</a>
+      <a href="#" class="text-gray-300 hover:text-white">Contact</a>
+    </div>
+    <button class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Login</button>
+  </div>
+</nav>`,
+    code: `<nav class="bg-gray-900 p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="text-2xl font-bold text-white">DarkBrand</div>
+    <div class="space-x-4">
+      <a href="#" class="text-gray-300 hover:text-white">Home</a>
+      <a href="#" class="text-gray-300 hover:text-white">Features</a>
+      <a href="#" class="text-gray-300 hover:text-white">Pricing</a>
+      <a href="#" class="text-gray-300 hover:text-white">Contact</a>
+    </div>
+    <button class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Login</button>
+  </div>
+</nav>`
+  },
 
 ];
 
