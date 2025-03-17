@@ -781,6 +781,29 @@ const cardComponents = [
 </div>
 </div>`
 },
+{
+  title: "News Update Card",
+  preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+<img class="w-full" src="https://www.zucisystems.com/wp-content/uploads/2021/07/icon-internet-world-hands-businessman-network-technology-communication-scaled.jpg" alt="News">
+<div class="px-6 py-4">
+  <div class="font-bold text-xl mb-2 dark:text-black">Breaking News</div>
+  <p class="text-gray-700 text-base">
+    Major updates are unfolding in the world of technology. Stay tuned for more details.
+  </p>
+  <a href="#" class="mt-4 inline-block text-blue-500 hover:underline">Read More</a>
+</div>
+</div>`,
+  code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+<img class="w-full" src="https://www.zucisystems.com/wp-content/uploads/2021/07/icon-internet-world-hands-businessman-network-technology-communication-scaled.jpg" alt="News">
+<div class="px-6 py-4">
+  <div class="font-bold text-xl mb-2 dark:text-black">Breaking News</div>
+  <p class="text-gray-700 text-base">
+    Major updates are unfolding in the world of technology. Stay tuned for more details.
+  </p>
+  <a href="#" class="mt-4 inline-block text-blue-500 hover:underline">Read More</a>
+</div>
+</div>`
+},
 ];
 
 // Form components
