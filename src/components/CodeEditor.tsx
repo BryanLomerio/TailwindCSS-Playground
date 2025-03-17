@@ -332,7 +332,6 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
           Run
         </button>
       </div>
-      {/* Editor container set to flex-1 to fill remaining space */}
       <div className="flex-1">
         <Editor
           width="100%"

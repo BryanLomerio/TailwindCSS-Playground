@@ -25,14 +25,24 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
 
   const saveCode = () => {
     setSaving(true);
+    const blob = new Blob([htmlCode], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "code.html";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
     setTimeout(() => {
       setSaving(false);
       toast({
-        title: "Code saved",
-        description: "Your code has been saved successfully",
+        title: "Code downloaded",
+        description: "Your code has been downloaded successfully",
       });
     }, 800);
   };
+
 
   return (
     <header className="header border-b border-border p-4 flex flex-col sm:flex-row items-center justify-between gap-4 animate-fade-in dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100">
