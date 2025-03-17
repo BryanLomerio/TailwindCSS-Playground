@@ -863,6 +863,35 @@ const cardComponents = [
 </div>
 </div>`
 },
+{
+  title: "Analytics Card",
+  preview: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
+<div class="flex items-center">
+  <div class="p-3 bg-green-500 text-white rounded-full">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h4v11H3zM10 4h4v17h-4zM17 8h4v13h-4z"></path>
+    </svg>
+  </div>
+  <div class="ml-4">
+    <div class="text-2xl font-bold dark:text-black">82%</div>
+    <div class="text-gray-600">Engagement</div>
+  </div>
+</div>
+</div>`,
+  code: `<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
+<div class="flex items-center">
+  <div class="p-3 bg-green-500 text-white rounded-full">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h4v11H3zM10 4h4v17h-4zM17 8h4v13h-4z"></path>
+    </svg>
+  </div>
+  <div class="ml-4">
+    <div class="text-2xl font-bold dark:text-black">82%</div>
+    <div class="text-gray-600">Engagement</div>
+  </div>
+</div>
+</div>`
+},
 ];
 
 // Form components
