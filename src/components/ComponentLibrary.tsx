@@ -918,7 +918,7 @@ const cardComponents = [
 {
   title: "Video Card",
   preview: `<div class="relative max-w-sm rounded overflow-hidden shadow-lg bg-white">
-<img class="w-full" src="https://source.unsplash.com/random/400x300?video" alt="Video Thumbnail">
+<img class="w-full" src="https://i.ytimg.com/vi/XC_Wd0FHAhc/hqdefault.jpg" alt="Video Thumbnail">
 <div class="absolute inset-0 flex items-center justify-center">
   <button class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600">
     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -934,7 +934,7 @@ const cardComponents = [
 </div>
 </div>`,
   code: `<div class="relative max-w-sm rounded overflow-hidden shadow-lg bg-white">
-<img class="w-full" src="https://source.unsplash.com/random/400x300?video" alt="Video Thumbnail">
+<img class="w-full" src="https://i.ytimg.com/vi/XC_Wd0FHAhc/hqdefault.jpg" alt="Video Thumbnail">
 <div class="absolute inset-0 flex items-center justify-center">
   <button class="bg-red-500 text-white p-3 rounded-full hover:bg-red-600">
     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
