@@ -152,6 +152,7 @@ const Tutorial = () => {
                 Skip Tutorial
               </button>
             </div>
+
           </div>
         </div>
       )}
