@@ -132,3 +132,12 @@
   --shepherd-arrow-color: #1e1e1e !important;
   --shepherd-arrow-shadow-color: #1e1e1e !important;
 }
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.header-button {
+  overflow: visible !important;
+  padding-right: 0 !important;
+}
