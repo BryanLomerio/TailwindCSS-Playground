@@ -8,7 +8,6 @@ import ComponentLibrary from "@/components/ComponentLibrary";
 import ColorPalette from "@/components/ColorPalette";
 import TutorialOverlay from "@/components/TutorialOverlay";
 import { toast } from "sonner";
-
 import { motion, AnimatePresence } from "framer-motion";
 
 const Index = () => {
@@ -309,42 +308,41 @@ const Index = () => {
       ]
     });
 
-tour.addStep({
-  id: "step-github",
-  text: `
-    <div>
-      <h3 class="text-lg font-bold mb-2">GitHub Button</h3>
-      <p>This button links to our GitHub repository. Click here to view our source code and contribute!</p>
-    </div>
-  `,
-  attachTo: {
-    element: ".btn-github",
-    on: "bottom"
-  },
-  buttons: [
-    { text: "Back", action: tour.back, classes: "shepherd-button-secondary" },
-    { text: "Next", action: tour.next, classes: "shepherd-button-primary" }
-  ]
-});
+    tour.addStep({
+      id: "step-github",
+      text: `
+        <div>
+          <h3 class="text-lg font-bold mb-2">GitHub Button</h3>
+          <p>This button links to our GitHub repository. Click here to view our source code and contribute!</p>
+        </div>
+      `,
+      attachTo: {
+        element: ".btn-github",
+        on: "bottom"
+      },
+      buttons: [
+        { text: "Back", action: tour.back, classes: "shepherd-button-secondary" },
+        { text: "Next", action: tour.next, classes: "shepherd-button-primary" }
+      ]
+    });
 
-
-tour.addStep({
-  id: "step-theme-toggle",
-  text: `
-    <div>
-      <h3 class="text-lg font-bold mb-2">Dark/Light Mode Toggle</h3>
-      <p>Use this toggle to switch between Dark and Light modes to suit your preference.</p>
-    </div>
-  `,
-  attachTo: {
-    element: ".theme-toggle",
-    on: "bottom"
-  },
-  buttons: [
-    { text: "Back", action: tour.back, classes: "shepherd-button-secondary" },
-    { text: "Next", action: tour.next, classes: "shepherd-button-primary" }
-  ]
-});
+    tour.addStep({
+      id: "step-theme-toggle",
+      text: `
+        <div>
+          <h3 class="text-lg font-bold mb-2">Dark/Light Mode Toggle</h3>
+          <p>Use this toggle to switch between Dark and Light modes to suit your preference.</p>
+        </div>
+      `,
+      attachTo: {
+        element: ".theme-toggle",
+        on: "bottom"
+      },
+      buttons: [
+        { text: "Back", action: tour.back, classes: "shepherd-button-secondary" },
+        { text: "Next", action: tour.next, classes: "shepherd-button-primary" }
+      ]
+    });
 
     tour.start();
   };

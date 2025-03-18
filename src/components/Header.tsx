@@ -10,9 +10,10 @@ interface HeaderProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
   htmlCode: string;
+  startTour: () => void;
 }
 
-const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
+const Header = ({ activeTab, setActiveTab, htmlCode, startTour }: HeaderProps) => {
   const { toast } = useToast();
   const [saving, setSaving] = useState(false);
 
@@ -63,7 +64,9 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
                 <TabsTrigger
                   key={tab}
                   value={tab}
+
                   className={cn(
+                    `tab-${tab}`,
                     "capitalize px-4 py-1.5 text-sm font-medium transition-all duration-200 relative",
                     "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-transparent after:transition-all after:duration-200",
                     "data-[state=active]:after:bg-current dark:data-[state=active]:after:bg-current",
@@ -86,7 +89,8 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
               <Button
                 variant="outline"
                 size="sm"
-                className="flex items-center gap-1.5 h-9 px-3 transition-all duration-200 hover:scale-105 dark:bg-[#bb86fc] dark:text-white dark:hover:bg-[#bb86fc]/90"
+
+                className="btn-copy flex items-center gap-1.5 h-9 px-3 transition-all duration-200 hover:scale-105 dark:bg-[#bb86fc] dark:text-white dark:hover:bg-[#bb86fc]/90"
                 onClick={copyToClipboard}
               >
                 <Copy className="w-4 h-4" />
@@ -96,7 +100,8 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
               <Button
                 variant="outline"
                 size="sm"
-                className="flex items-center gap-1.5 h-9 px-3 transition-all duration-200 hover:scale-105 dark:bg-[#bb86fc] dark:text-white dark:hover:bg-[#bb86fc]/90"
+                // Added btn-save class for the tour step
+                className="btn-save flex items-center gap-1.5 h-9 px-3 transition-all duration-200 hover:scale-105 dark:bg-[#bb86fc] dark:text-white dark:hover:bg-[#bb86fc]/90"
                 onClick={saveCode}
                 disabled={saving}
               >
@@ -107,13 +112,24 @@ const Header = ({ activeTab, setActiveTab, htmlCode }: HeaderProps) => {
               <Button
                 variant="outline"
                 size="sm"
-                className="flex items-center gap-1.5 h-9 px-3 transition-all duration-200 hover:scale-105 dark:bg-[#bb86fc] dark:text-white dark:hover:bg-[#bb86fc]/90"
+                // Added btn-github class for the tour step
+                className="btn-github flex items-center gap-1.5 h-9 px-3 transition-all duration-200 hover:scale-105 dark:bg-[#bb86fc] dark:text-white dark:hover:bg-[#bb86fc]/90"
                 asChild
               >
                 <a href="https://github.com/BryanLomerio" target="_blank" rel="noopener noreferrer">
                   <Github className="w-4 h-4" />
                   <span className="hidden sm:inline">GitHub</span>
                 </a>
+              </Button>
+
+              <Button
+                variant="outline"
+                size="sm"
+                // Added btn-help class for the tour step
+                className="btn-help flex items-center gap-1.5 h-9 px-3 transition-all duration-200 hover:scale-105 dark:bg-[#bb86fc] dark:text-white dark:hover:bg-[#bb86fc]/90"
+                onClick={startTour}
+              >
+                <span className="hidden sm:inline">Tutorial</span>
               </Button>
             </div>
           </div>
