@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Editor, { OnMount } from "@monaco-editor/react";
 
 const defaultTemplate = `<!-- Solo Leveling Fan Page -->
@@ -28,14 +28,67 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
   onChange,
 }) => {
   const [code, setCode] = useState(initialValue);
+  const [editor, setEditor] = useState(null);
+
+  const formatCode = async (value: string) => {
+    try {
+
+      const prettier = await import('prettier/standalone');
+      const parser = await import('prettier/parser-html');
+
+      const formatted = await prettier.format(value, {
+        parser: "html",
+        plugins: [parser],
+        semi: true,
+        tabWidth: 2,
+        printWidth: 100,
+        singleQuote: true,
+        trailingComma: "es5",
+        bracketSpacing: true,
+        arrowParens: "always",
+      });
+      return formatted;
+    } catch (error) {
+      console.error("Formatting error:", error);
+    }
+  };
+
+  const debounce = (func: Function, wait: number) => {
+    let timeout: NodeJS.Timeout;
+    return (...args: any[]) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), wait);
+    };
+  };
+
+  const debouncedFormatting = useCallback(
+    debounce(async (value: string) => {
+      const formatted = await formatCode(value);
+      setCode(formatted);
+      onChange(formatted);
+    }, 1000),
+    []
+  );
 
   const handleEditorChange = (value?: string) => {
     const updatedCode = value || "";
     setCode(updatedCode);
-    onChange(updatedCode);
+    debouncedFormatting(updatedCode);
   };
 
   const handleEditorDidMount: OnMount = (editor, monaco) => {
+    setEditor(editor);
+
+    // Add format command
+    editor.addAction({
+      id: "format-code",
+      label: "Format Code",
+      keybindings: [
+        monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyF,
+      ],
+      run: formatCode,
+    });
+
     monaco.languages.registerCompletionItemProvider("html", {
       provideCompletionItems: (model, position) => {
         const suggestions = [
@@ -325,12 +378,14 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
         <span className="text-sm font-medium dark:text-white">
           Tailwind CSS
         </span>
-        <button
-          onClick={handleRun}
-          className="px-2 py-1 bg-[#1e1e1e] dark:bg-[#bb86fc] text-white rounded focus:outline-none"
-        >
-          Run
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={handleRun}
+            className="px-2 py-1 bg-[#1e1e1e] dark:bg-[#bb86fc] text-white rounded focus:outline-none"
+          >
+            Run
+          </button>
+        </div>
       </div>
       <div className="flex-1">
         <Editor
@@ -345,6 +400,10 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
             fontSize: 14,
             minimap: { enabled: false },
             wordWrap: "on",
+            formatOnPaste: true,
+            formatOnType: true,
+            autoIndent: "full",
+            tabSize: 2,
           }}
         />
       </div>
