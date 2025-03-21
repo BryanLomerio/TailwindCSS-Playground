@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import Editor, { OnMount } from "@monaco-editor/react";
 
 const defaultTemplate = `<!-- Solo Leveling Fan Page -->
@@ -30,13 +30,12 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
   const [code, setCode] = useState(initialValue);
   const [editor, setEditor] = useState(null);
 
-  const formatCode = async (value: string) => {
+  const formatCode = async () => {
     try {
-
       const prettier = await import('prettier/standalone');
       const parser = await import('prettier/parser-html');
 
-      const formatted = await prettier.format(value, {
+      const formatted = await prettier.format(code, {
         parser: "html",
         plugins: [parser],
         semi: true,
@@ -47,39 +46,22 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
         bracketSpacing: true,
         arrowParens: "always",
       });
-      return formatted;
+      setCode(formatted);
+      onChange(formatted);
     } catch (error) {
       console.error("Formatting error:", error);
     }
   };
 
-  const debounce = (func: Function, wait: number) => {
-    let timeout: NodeJS.Timeout;
-    return (...args: any[]) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func(...args), wait);
-    };
-  };
-
-  const debouncedFormatting = useCallback(
-    debounce(async (value: string) => {
-      const formatted = await formatCode(value);
-      setCode(formatted);
-      onChange(formatted);
-    }, 1000),
-    []
-  );
-
   const handleEditorChange = (value?: string) => {
     const updatedCode = value || "";
     setCode(updatedCode);
-    debouncedFormatting(updatedCode);
+    onChange(updatedCode);
   };
 
   const handleEditorDidMount: OnMount = (editor, monaco) => {
     setEditor(editor);
 
-    // Add format command
     editor.addAction({
       id: "format-code",
       label: "Format Code",
@@ -90,247 +72,77 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
     });
 
     monaco.languages.registerCompletionItemProvider("html", {
-      provideCompletionItems: (model, position) => {
+      provideCompletionItems: () => {
         const suggestions = [
-          // HTML tags
           {
             label: "div",
             kind: monaco.languages.CompletionItemKind.Snippet,
             insertText: `<div>$0</div>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
             documentation: "HTML <div> element",
           },
           {
-            label: "header",
+            label: "button",
             kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<header>$0</header>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <header> element",
-          },
-          {
-            label: "footer",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<footer>$0</footer>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <footer> element",
-          },
-          {
-            label: "section",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<section>$0</section>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <section> element",
-          },
-          {
-            label: "article",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<article>$0</article>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <article> element",
-          },
-          {
-            label: "nav",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<nav>$0</nav>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <nav> element",
-          },
-          {
-            label: "main",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<main>$0</main>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <main> element",
-          },
-          {
-            label: "aside",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<aside>$0</aside>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <aside> element",
-          },
-          {
-            label: "h1",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<h1>$0</h1>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <h1> element",
-          },
-          {
-            label: "h2",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<h2>$0</h2>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <h2> element",
-          },
-          {
-            label: "h3",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<h3>$0</h3>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <h3> element",
-          },
-          {
-            label: "p",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<p>$0</p>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <p> element",
-          },
-          {
-            label: "a",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<a href="$0">$1</a>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <a> element",
-          },
-          {
-            label: "img",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<img src="$0" alt="" />`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <img> element",
-          },
-          {
-            label: "ul",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<ul>\n\t<li>$0</li>\n</ul>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <ul> list",
-          },
-          {
-            label: "ol",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<ol>\n\t<li>$0</li>\n</ol>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <ol> list",
-          },
-          {
-            label: "li",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<li>$0</li>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <li> element",
+            insertText: `<button class="$1">$0</button>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            documentation: "HTML <button> element",
           },
           {
             label: "form",
             kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<form>$0</form>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            insertText: `<form>\n\t$0\n</form>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
             documentation: "HTML <form> element",
           },
           {
             label: "input",
             kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<input type="text" placeholder="$0" />`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            insertText: `<input type="$1" placeholder="$2" class="$3" $0/>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
             documentation: "HTML <input> element",
           },
           {
             label: "label",
             kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<label for="$0">$1</label>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            insertText: `<label for="$1">$0</label>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
             documentation: "HTML <label> element",
           },
           {
             label: "textarea",
             kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<textarea>$0</textarea>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            insertText: `<textarea class="$1">$0</textarea>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
             documentation: "HTML <textarea> element",
+          },
+          {
+            label: "select",
+            kind: monaco.languages.CompletionItemKind.Snippet,
+            insertText: `<select class="$1">\n\t<option value="$2">$3</option>\n\t$0\n</select>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            documentation: "HTML <select> element",
           },
           {
             label: "table",
             kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<table>\n\t<thead>\n\t\t<tr>\n\t\t\t<th>$0</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td></td>\n\t\t</tr>\n\t</tbody>\n</table>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            insertText: `<table class="$1">\n\t<thead>\n\t\t<tr>\n\t\t\t<th>$2</th>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td>$0</td>\n\t\t</tr>\n\t</tbody>\n</table>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
             documentation: "HTML <table> element",
           },
-          {
-            label: "span",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<span>$0</span>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <span> element",
-          },
-          {
-            label: "strong",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<strong>$0</strong>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <strong> element",
-          },
-          {
-            label: "em",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<em>$0</em>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <em> element",
-          },
-          {
-            label: "blockquote",
-            kind: monaco.languages.CompletionItemKind.Snippet,
-            insertText: `<blockquote>$0</blockquote>`,
-            insertTextRules:
-              monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
-            documentation: "HTML <blockquote> element",
-          },
-          // Tailwind CSS classes
-          {
-            label: "p-8",
-            kind: monaco.languages.CompletionItemKind.Text,
-            insertText: "p-8",
-            documentation: "Tailwind CSS: padding 8",
-          },
-          {
-            label: "max-w-md",
-            kind: monaco.languages.CompletionItemKind.Text,
-            insertText: "max-w-md",
-            documentation: "Tailwind CSS: max width medium",
-          },
-          {
-            label: "bg-white",
-            kind: monaco.languages.CompletionItemKind.Text,
-            insertText: "bg-white",
-            documentation: "Tailwind CSS: background white",
-          },
-          {
-            label: "text-indigo-500",
-            kind: monaco.languages.CompletionItemKind.Text,
-            insertText: "text-indigo-500",
-            documentation: "Tailwind CSS: text color indigo 500",
-          },
+
+          // Tailwind Layout
           {
             label: "flex",
             kind: monaco.languages.CompletionItemKind.Text,
             insertText: "flex",
             documentation: "Tailwind CSS: display flex",
+          },
+          {
+            label: "grid",
+            kind: monaco.languages.CompletionItemKind.Text,
+            insertText: "grid",
+            documentation: "Tailwind CSS: display grid",
           },
           {
             label: "items-center",
@@ -339,28 +151,47 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
             documentation: "Tailwind CSS: align items center",
           },
           {
-            label: "justify-center",
+            label: "justify-between",
             kind: monaco.languages.CompletionItemKind.Text,
-            insertText: "justify-center",
-            documentation: "Tailwind CSS: justify content center",
+            insertText: "justify-between",
+            documentation: "Tailwind CSS: justify content space between",
+          },
+
+          // Common Components
+          {
+            label: "card",
+            kind: monaco.languages.CompletionItemKind.Snippet,
+            insertText: `<div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">\n\t$0\n</div>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            documentation: "Tailwind CSS card component",
           },
           {
-            label: "w-full",
-            kind: monaco.languages.CompletionItemKind.Text,
-            insertText: "w-full",
-            documentation: "Tailwind CSS: full width",
+            label: "navbar",
+            kind: monaco.languages.CompletionItemKind.Snippet,
+            insertText: `<nav class="bg-gray-800 p-4">\n\t<div class="flex items-center justify-between">\n\t\t$0\n\t</div>\n</nav>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            documentation: "Tailwind CSS navbar component",
           },
           {
-            label: "h-full",
-            kind: monaco.languages.CompletionItemKind.Text,
-            insertText: "h-full",
-            documentation: "Tailwind CSS: full height",
+            label: "button-primary",
+            kind: monaco.languages.CompletionItemKind.Snippet,
+            insertText: `<button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">$0</button>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            documentation: "Tailwind CSS primary button",
           },
           {
-            label: "bg-gray-100",
-            kind: monaco.languages.CompletionItemKind.Text,
-            insertText: "bg-gray-100",
-            documentation: "Tailwind CSS: background gray 100",
+            label: "button-secondary",
+            kind: monaco.languages.CompletionItemKind.Snippet,
+            insertText: `<button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition">$0</button>`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            documentation: "Tailwind CSS secondary button",
+          },
+          {
+            label: "input-form",
+            kind: monaco.languages.CompletionItemKind.Snippet,
+            insertText: `<input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="$0">`,
+            insertTextRules: monaco.languages.CompletionItemInsertTextRule.InsertAsSnippet,
+            documentation: "Tailwind CSS styled input",
           },
         ];
         return { suggestions };
@@ -379,6 +210,12 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
           Tailwind CSS
         </span>
         <div className="flex gap-2">
+          <button
+            onClick={formatCode}
+            className="px-2 py-1 bg-[#1e1e1e] dark:bg-[#bb86fc] text-white rounded focus:outline-none"
+          >
+            Format
+          </button>
           <button
             onClick={handleRun}
             className="px-2 py-1 bg-[#1e1e1e] dark:bg-[#bb86fc] text-white rounded focus:outline-none"
@@ -400,8 +237,8 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
             fontSize: 14,
             minimap: { enabled: false },
             wordWrap: "on",
-            formatOnPaste: true,
-            formatOnType: true,
+            formatOnPaste: false,
+            formatOnType: false,
             autoIndent: "full",
             tabSize: 2,
           }}
