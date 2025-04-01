@@ -121,7 +121,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode, startTour }: HeaderProps) =
                 onMouseDown={(e) => e.preventDefault()}
               >
                 <Copy className="w-4 h-4" />
-                <span className="hidden sm:inline">Copy</span>
+                <span className="hidden sm:inline p-2">Copy</span>
               </Button>
 
               <Button
@@ -134,7 +134,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode, startTour }: HeaderProps) =
                 onMouseDown={(e) => e.preventDefault()}
               >
                 <Save className="w-4 h-4" />
-                <span className="hidden sm:inline">
+                <span className="hidden sm:inline p-2">
                   {saving ? "Saving..." : "Save"}
                 </span>
               </Button>
