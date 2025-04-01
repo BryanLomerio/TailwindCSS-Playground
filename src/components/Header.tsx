@@ -71,7 +71,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode, startTour }: HeaderProps) =
 
   return (
     <header className="border-b border-border backdrop-blur-sm sticky top-0 z-10 transition-all duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-900/95 dark:text-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+      <div className="max-w-full mx-auto px-4 sm:px-6 py-3">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-col items-center sm:items-start">
             <h1 className="text-xl font-semibold tracking-tight">Tailwind Playground</h1>
@@ -85,7 +85,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode, startTour }: HeaderProps) =
             className="w-full sm:w-auto mt-2 sm:mt-0"
             onValueChange={setActiveTab}
           >
-            <TabsList className="w-full sm:w-auto grid grid-cols-3 h-9 overflow-hidden rounded-md">
+            <TabsList className="w-full sm:w-auto grid grid-cols-3 h-9 overflow-hidden items-center text-center rounded-md">
               {["editor", "components", "colors"].map((tab) => (
                 <TabsTrigger
                   key={tab}
