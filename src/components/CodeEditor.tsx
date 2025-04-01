@@ -200,7 +200,6 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
   };
 
   const handleRun = () => {
-    console.log("Code updated:", code);
   };
 
   return (
