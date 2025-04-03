@@ -51,7 +51,7 @@ const Preview = ({ htmlCode }: PreviewProps) => {
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       if (event.data && event.data.height) {
-        setIframeHeight(`${event.data.height + 32}px`); 
+        setIframeHeight(`${event.data.height + 32}px`);
       }
     };
 
@@ -61,7 +61,7 @@ const Preview = ({ htmlCode }: PreviewProps) => {
 
   return (
     <div className="flex flex-col h-full bg-white rounded-md shadow-sm border border-border overflow-hidden animate-fade-in">
-      <div className="px-4 py-2 bg-muted border-b border-border">
+      <div className="px-4 py-2 bg-muted border-b border-border dark:bg-[#272727]">
         <span className="text-sm font-medium">Preview</span>
       </div>
       <div className="flex-1 overflow-auto bg-secondary/30 editor-scrollbar">

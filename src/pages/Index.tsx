@@ -443,7 +443,7 @@ const Index = () => {
           startTour={startTour}
         />
 
-        <main className="flex-1 p-4 overflow-hidden">
+        <main className="flex-1 p-4 overflow-hidden dark:bg-[#1e1e1e]">
           <AnimatePresence mode="wait">
             {activeTab === "editor" ? (
               <motion.div

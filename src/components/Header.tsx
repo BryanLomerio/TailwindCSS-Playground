@@ -70,8 +70,8 @@ const Header = ({ activeTab, setActiveTab, htmlCode, startTour }: HeaderProps) =
   };
 
   return (
-    <header className="border-b border-border backdrop-blur-sm sticky top-0 z-10 transition-all duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-900/95 dark:text-gray-100">
-      <div className="max-w-full mx-auto px-4 sm:px-6 py-3">
+    <header className="border-b border-white backdrop-blur-sm sticky top-0 z-10 transition-all duration-300 ease-in-out dark:border-gray-700 dark:bg-[#272727] dark:text-gray-100">
+      <div className="max-w-full mx-auto px-4 sm:px-6 py-3 border-b dark:border-white">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-col items-center sm:items-start">
             <h1 className="text-xl font-semibold tracking-tight">Tailwind Playground</h1>

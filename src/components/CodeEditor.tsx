@@ -204,7 +204,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 
   return (
     <div className="flex flex-col w-full h-full border rounded shadow">
-      <div className="flex justify-between items-center p-2 bg-gray-200 border-b dark:bg-[#1e293b]">
+      <div className="flex justify-between items-center p-2 bg-gray-200 border-b dark:bg-[#272727]">
         <span className="text-sm font-medium dark:text-white">
           Tailwind CSS
         </span>

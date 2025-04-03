@@ -38,6 +38,7 @@ const Tutorial = () => {
       }
     });
 
+      // complete
     tour.on("complete", () => {
       setTourActive(false);
       document.querySelectorAll(".no-blur").forEach(el => el.classList.remove("no-blur"));
