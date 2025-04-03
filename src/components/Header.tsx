@@ -71,7 +71,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode, startTour }: HeaderProps) =
 
   return (
     <header className="border-b border-white backdrop-blur-sm sticky top-0 z-10 transition-all duration-300 ease-in-out dark:border-gray-700 dark:bg-[#272727] dark:text-gray-100">
-      <div className="max-w-full mx-auto px-4 sm:px-6 py-3 border-b dark:border-white">
+      <div className="max-w-full mx-auto px-4 sm:px-6 py-3 border-b dark:border-gray-500">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-col items-center sm:items-start">
             <h1 className="text-xl font-semibold tracking-tight">Tailwind Playground</h1>
@@ -85,7 +85,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode, startTour }: HeaderProps) =
             className="w-full sm:w-auto mt-2 sm:mt-0"
             onValueChange={setActiveTab}
           >
-            <TabsList className="w-full sm:w-auto grid grid-cols-3 h-9 overflow-hidden items-center text-center rounded-md">
+            <TabsList className="w-full sm:w-auto grid grid-cols-3 h-9 overflow-hidden items-center text-center rounded-md dark:bg-[#1e1e1e]">
               {["editor", "components", "colors"].map((tab) => (
                 <TabsTrigger
                   key={tab}
@@ -94,7 +94,6 @@ const Header = ({ activeTab, setActiveTab, htmlCode, startTour }: HeaderProps) =
                     `tab-${tab}`,
                     "capitalize px-4 py-1.5 text-sm font-medium transition-all duration-200 relative",
                     "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-transparent after:transition-all after:duration-200",
-                    "data-[state=active]:after:bg-current dark:data-[state=active]:after:bg-current",
                     "data-[state=active]:bg-[#272727] dark:data-[state=active]:bg-[#bb86fc]",
                     "data-[state=active]:shadow-sm",
                     "hover:bg-[#3a3a3a]/40 dark:hover:bg-[#cba4fa44]",
@@ -130,7 +129,6 @@ const Header = ({ activeTab, setActiveTab, htmlCode, startTour }: HeaderProps) =
                 className="btn-save header-button flex items-center gap-1.5 h-9 px-3 transition-all duration-200 hover:scale-105 dark:bg-[#bb86fc] dark:text-white dark:hover:bg-[#bb86fc]/90 focus:outline-none focus:ring-0"
                 onClick={saveCode}
                 disabled={saving}
-                // Add onMouseDown to prevent focus
                 onMouseDown={(e) => e.preventDefault()}
               >
                 <Save className="w-4 h-4" />
