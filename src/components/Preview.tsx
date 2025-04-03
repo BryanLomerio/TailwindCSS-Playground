@@ -64,7 +64,7 @@ const Preview = ({ htmlCode }: PreviewProps) => {
       <div className="px-4 py-2 bg-muted border-b border-border dark:bg-[#272727]">
         <span className="text-sm font-medium">Preview</span>
       </div>
-      <div className="flex-1 overflow-auto bg-secondary/30 dark:bg-gray-300 editor-scrollbar">
+      <div className="flex-1 overflow-auto bg-secondary/30 editor-scrollbar">
         <iframe
           title="preview"
           srcDoc={createIframeSrc(htmlCode)}
