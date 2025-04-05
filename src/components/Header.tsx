@@ -123,7 +123,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode, startTour }: HeaderProps) =
                 <span className="hidden sm:inline p-2">Copy</span>
               </Button>
 
-              <Button
+             {/*  <Button
                 variant="outline"
                 size="sm"
                 className="btn-save header-button flex items-center gap-1.5 h-9 px-3 transition-all duration-200 hover:scale-105 dark:bg-[#bb86fc] dark:text-white dark:hover:bg-[#bb86fc]/90 focus:outline-none focus:ring-0"
@@ -136,7 +136,7 @@ const Header = ({ activeTab, setActiveTab, htmlCode, startTour }: HeaderProps) =
                   {saving ? "Saving..." : "Save"}
                 </span>
               </Button>
-
+ */}
               <Button
                 variant="outline"
                 size="sm"
